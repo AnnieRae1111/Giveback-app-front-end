@@ -1,0 +1,26 @@
+My app is called the Giveback app. This app allows you to easily post items you want to give away and find people who actually need them. I perosnally have been driving around with a bunch of sutff in my car that I need to give away but haven't made it anywhere to drop it off. This app helsp you easily show what you have to give away adn allows other people to claim the item and pick it up. You can have them pick up items from your house or you can leave them in specified areas for other people to pick up. 
+
+---User Stories---
+•As a user I want to be able to log in to my account 
+•As a user I want to upload photos of the items I need to give away
+•As a user I want to delete my photo if I change my mind 
+•As a user I want my item / photo deleted once it has been claimed 
+•As a user I want to be able to specifiy where the item can be picked up from 
+•As a user I want to be able to claim items that I want 
+•Once an Item is claimed it is removed from the list of available items 
+•As a user I want to be able to see a history of the items I have claimed and given away (this may be a stretch goal )
+
+Models: 
+![alt text](https://i.imgur.com/yuAYhl4.png)
+
+
+Component Hierarchy: 
+![alt text](https://i.imgur.com/mEjW0Jb.png)
+
+WireFrame for App:
+![alt text](https://i.imgur.com/b2bjVik.png)
+![alt text](https://i.imgur.com/UAMEh14.png)
+![alt text](https://i.imgur.com/JiFUUPt.png)
+![alt text](https://i.imgur.com/Ezz13lk.png)
+
+
