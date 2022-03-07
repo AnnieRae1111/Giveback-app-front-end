@@ -1,4 +1,7 @@
-My app is called the Giveback app. This app allows you to easily post items you want to give away and find people who actually need them. I perosnally have been driving around with a bunch of sutff in my car that I need to give away but haven't made it anywhere to drop it off. This app helsp you easily show what you have to give away adn allows other people to claim the item and pick it up. You can have them pick up items from your house or you can leave them in specified areas for other people to pick up. 
+My app is called Good Karma. The app allows you to easily post items you want to give away and find people who actually need them. I personally have been driving around with a bunch of stuff in my car that I need to give away but haven't made it anywhere to drop it off. This app helsp you easily show what you have to give away adn allows other people to claim the item and pick it up. You can have them pick up items from your house or you can leave them in specified areas for other people to pick up. 
+
+Stretch goals: 
+-to add a section that connects people with local places in need such as shelters, good will, thrift stores, etc. 
 
 ---User Stories---
 •As a user I want to be able to log in to my account 
@@ -18,7 +21,7 @@ Component Hierarchy:
 ![alt text](https://i.imgur.com/mEjW0Jb.png)
 
 WireFrame for App:
-![alt text](https://i.imgur.com/b2bjVik.png)
+![alt text](https://i.imgur.com/ri3RCFm.png)
 ![alt text](https://i.imgur.com/UAMEh14.png)
 ![alt text](https://i.imgur.com/JiFUUPt.png)
 ![alt text](https://i.imgur.com/Ezz13lk.png)
