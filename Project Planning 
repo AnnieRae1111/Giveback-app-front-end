@@ -14,7 +14,23 @@ Stretch goals:
 •As a user I want to be able to see a history of the items I have claimed and given away (this may be a stretch goal )
 
 Models: 
-![alt text](https://i.imgur.com/yuAYhl4.png)
+
+User Model: 
+Email 
+Username 
+Password 
+Location 
+
+Items Model: 
+Category 
+Title 
+Date Posted 
+
+Profile Model: 
+Items 
+Owner: User Model 
+    (owns the User Model)
+
 
 
 Component Hierarchy: 
