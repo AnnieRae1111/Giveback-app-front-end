@@ -1,12 +1,19 @@
 import React, {Component} from 'react'
 import { reduxForm, Field} from 'redux-form'
+//helper function 
+
+import { compose } from 'redux'
+
+import { connect } from 'react-redux'
+import * as actions from '../../components/actions'
+//wire up signup action creator to this form 
 
 
 //have to call handleSubmit with reduxForm 
 
 class Signup extends Component {
     onSubmit = (formProps) => {
-        console.log(formProps)
+       this.props.signup(formProps)
 
     }
 
@@ -41,4 +48,11 @@ class Signup extends Component {
     }
 }
 
-export default reduxForm({form: 'signup'})(Signup)
+export default compose(
+    connect(null, actions), 
+    //state, actions object 
+    //null bc we don't have state right now 
+    reduxForm({form: 'signup'})
+)(Signup)
+
+//componse = apply multiple HOF to a single component = Singup in this case 
