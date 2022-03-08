@@ -2,6 +2,10 @@ import{ useState } from 'react'
 import './App.css';
 import FileUpload from './components/FileUpload';
 import FileList from './components/FileList';
+import Header from './components/Header';
+import {Routes, Route } from 'react-router-dom'
+import Welcome from './components/Welcome';
+import Signup from './components/ auth/Signup';
 
 function App() {
   const [files, setFiles]=useState([
@@ -25,6 +29,11 @@ function App() {
 
   return (
     <div className="app-container">
+      <Header/>
+      <Routes>
+        <Route path="/" element={<Welcome/>} />
+        <Route path="/signup" element={<Signup/>} />
+      </Routes>
       <p className="upload-file-title">Upload File</p>
       <FileUpload files={files} setFiles={setFiles} removeFile={removeFile}/>
       <FileList files={files} removeFile={removeFile}/>

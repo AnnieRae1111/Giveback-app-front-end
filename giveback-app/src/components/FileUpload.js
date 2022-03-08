@@ -4,6 +4,8 @@ import axios from "axios";
 import '../css/FileUpload.css'
 
 const FileUpload = ({files, setFiles, removeFile}) => {
+
+    
     
     const uploadHandler =(event) => {
         const file = event.target.files[0]
@@ -31,13 +33,14 @@ const FileUpload = ({files, setFiles, removeFile}) => {
 
             })
     }
+    console.log(files)
 
     return (  
         <>
         <div className="file-card">
             <div className="file-inputs">
-                <input type="file" onChange={uploadHandler}/>
-                <button>
+                <input type="file" accept="image/*" onChange={uploadHandler}/>
+                <button className="file-upload-button">
                     <i>
                         <FontAwesomeIcon icon={faPlus}/>
                     </i>
