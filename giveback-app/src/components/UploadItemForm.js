@@ -14,17 +14,19 @@ import {
     const UploadItemForm = () => {
         const[itemCategory, setItemCategory]=useState('')
         const[itemTitle, setItemTitle]=useState('')
-        const{itemDate, setItemDate}=useState()
+        const[itemDate, setItemDate]=useState()
         const [images, setImages]=useState([])
         const [newImage, setnewImage]=useState() 
+        const[owner, setOwner]=useState('')
     
-        let newItem = {
-            category:itemCategory,
-            title: itemTitle,
-            date_posted: itemDate,
-            images: images,
+        // let newItem = {
+        //     category:itemCategory,
+        //     title: itemTitle,
+        //     date_posted: itemDate,
+        //     owner: owner,
+        //     images: images,
 
-        }
+        // }
 
         const onUpload = (event)=> {
             event.preventDefault()
@@ -36,8 +38,11 @@ import {
             data.append('images', images)
             data.append('itemTitle', itemTitle)
             data.append('itemDate', itemDate)
+            data.append('owner', owner)
+            data.append('newImage', newImage)
 
 
+            console.log(data)
             
             axios.post("http://localhost:8000/api/items", data, {
                 headers: {
@@ -111,7 +116,7 @@ import {
                     id="title"
                     name="title"
                     placeholder="title"
-                    type="title"
+                    type="text"
                     onChange={(event)=>{setItemTitle(event.target.value)}}
                     />
                 </FormGroup>
@@ -128,6 +133,18 @@ import {
                     />
                 </FormGroup>
                 <FormGroup>
+                    <Label id="own-label" for="owner">
+                    Owner:
+                    </Label>
+                    <Input
+                    id="owner"
+                    name="owner"
+                    placeholder="owner"
+                    type="text"
+                    onChange={(event)=>{setOwner(event.target.value)}}
+                    />
+                </FormGroup>
+                <FormGroup>
                     <Label for="exampleFile">
                     File
                     </Label>
@@ -135,13 +152,14 @@ import {
                     id="exampleFile"
                     name="file"
                     type="file"
-                    onChange={(event)=>{setnewImage(event.target.files)}}
+                    accept="image/*"
+                    onChange={(event)=>{setnewImage(event.target.files[0])}}
                     />
                     <FormText>
                     This is some placeholder block-level help text for the above input. It's a bit lighter and easily wraps to a new line.
                     </FormText>
                 </FormGroup>
-                <Button onClick={onUpload} id="submit-button">
+                <Button type="submit" onClick={onUpload} id="submit-button">
                     Submit
                 </Button>
             </Form>
