@@ -6,7 +6,7 @@ const FileItem = ({file, deleteFile}) => {
     // console.log(file.name)
 
     return (  
-        
+        <div className="file-item-container">
         <li className="list=item" 
         key={file.name}>
             
@@ -26,6 +26,7 @@ const FileItem = ({file, deleteFile}) => {
 
             </div>
         </li>
+        </div>
     );
 }
  

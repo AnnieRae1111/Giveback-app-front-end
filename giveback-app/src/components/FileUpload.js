@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import axios from "axios";
 import '../css/FileUpload.css'
 
+
 const FileUpload = ({files, setFiles, removeFile}) => {
 
     
@@ -37,6 +38,7 @@ const FileUpload = ({files, setFiles, removeFile}) => {
 
     return (  
         <>
+        <form className="form-container">
         <div className="file-card">
             <div className="file-inputs">
                 <input type="file" accept="image/*" onChange={uploadHandler}/>
@@ -51,6 +53,8 @@ const FileUpload = ({files, setFiles, removeFile}) => {
             <p className="main">Supported files</p>
             <p className="info">PDF, JPG, PNG</p>
         </div>
+        </form>
+      
         </>
 
     );

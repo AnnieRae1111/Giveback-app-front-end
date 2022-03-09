@@ -1,0 +1,14 @@
+.landing-page-container{
+    height:400px;
+    background: purple;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    
+}
+
+/* .good-karma-landing-title,
+.good-karma-tagline{
+    display:inline-block;
+} */

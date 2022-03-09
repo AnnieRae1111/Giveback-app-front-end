@@ -1,0 +1,20 @@
+.header-container{
+    height: 80px;
+    display:flex;
+    justify-content: space-evenly;
+
+}
+
+.good-karma-link,
+.signup-link,
+.signin-link,
+.feature-link{
+    margin-left:20px;
+    margin-top: 20px;
+    margin-right:20px;
+    
+}
+
+.good-karma-logo{
+    margin-top: 10px;
+}
