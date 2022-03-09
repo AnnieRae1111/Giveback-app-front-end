@@ -1,3 +1,20 @@
+/* Color Theme Swatches in Hex */
+.BASIK-1-hex { color: #8FA4BF; }
+.BASIK-2-hex { color: #03658C; }
+.BASIK-3-hex { color: #517360; }
+.BASIK-4-hex { color: #BAD9C8; }
+.BASIK-5-hex { color: #0D0D0D; }
+
+/* Color Theme Swatches in RGBA */
+.BASIK-1-rgba { color: rgba(143, 164, 191, 1); }
+.BASIK-2-rgba { color: rgba(2, 101, 140, 1); }
+.BASIK-3-rgba { color: rgba(81, 114, 95, 1); }
+.BASIK-4-rgba { color: rgba(186, 216, 199, 1); }
+.BASIK-5-rgba { color: rgba(12, 12, 12, 1); }
+
+
+
+
 .upload-file-title{
   font-weight:bold;
   margin-bottom:1rem;

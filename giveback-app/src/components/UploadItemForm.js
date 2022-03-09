@@ -28,6 +28,23 @@ import {
 
         // }
 
+
+
+        const uploadImage = (event)=> {
+            event.preventDefault()
+            setImages([...images, newImage])
+            console.log(images)
+            // const imageData = new FormData()
+            // imageData.append('newImage', newImage)
+            // imageData.append('owner', owner)
+
+            // console.log(imageData)
+            
+        
+
+        }
+
+
         const onUpload = (event)=> {
             event.preventDefault()
             setImages([...images, newImage])
@@ -159,10 +176,14 @@ import {
                     This is some placeholder block-level help text for the above input. It's a bit lighter and easily wraps to a new line.
                     </FormText>
                 </FormGroup>
+                <Button type="submit" onClick={uploadImage} id="submit-button">
+                    Upload Image
+                </Button><br/>
                 <Button type="submit" onClick={onUpload} id="submit-button">
-                    Submit
+                    Add New Item
                 </Button>
             </Form>
+            <img src="haryo-setyadi-acn5ERAeSb4-unsplash.jpg" alt="s3" />
             </div>
                 );
             }
