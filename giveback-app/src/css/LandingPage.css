@@ -1,13 +1,26 @@
 .landing-page-container{
-    height:400px;
-    background-color: #517360;
+    height: 700px;
+    background-color: #D9A7BE;
     display:flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    /* justify-content: space-around; */
+    
     
 }
 
+.good-karma-landing-title{
+    margin-top: 50px;
+}
+.landing-page-image{
+    height:450px;
+    width:400px;
+    /* border-radius: 50%; */
+    border: 3px solid white;
+    border-radius: 200px 200px 0 0;
+   
+}
 /* .good-karma-landing-title,
 .good-karma-tagline{
     display:inline-block;

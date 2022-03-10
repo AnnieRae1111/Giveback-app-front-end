@@ -5,18 +5,22 @@
 .BASIK-4-hex { color: #BAD9C8; }
 .BASIK-5-hex { color: #0D0D0D; }
 
-/* Color Theme Swatches in RGBA */
-.BASIK-1-rgba { color: rgba(143, 164, 191, 1); }
-.BASIK-2-rgba { color: rgba(2, 101, 140, 1); }
-.BASIK-3-rgba { color: rgba(81, 114, 95, 1); }
-.BASIK-4-rgba { color: rgba(186, 216, 199, 1); }
-.BASIK-5-rgba { color: rgba(12, 12, 12, 1); }
+
+
+/* Color Theme Swatches in Hex */
+.Mysterious-purple---red-tunnel-and-blue-sky-1-hex { color: #73020C; }
+.Mysterious-purple---red-tunnel-and-blue-sky-2-hex { color: #8D53A6; }
+.Mysterious-purple---red-tunnel-and-blue-sky-3-hex { color: #F29F05; }
+.Mysterious-purple---red-tunnel-and-blue-sky-4-hex { color: #F27405; }
+.Mysterious-purple---red-tunnel-and-blue-sky-5-hex { color: #F24405; }
+
+/* Color Theme Swatches in Hex */
+.abstract-watercolor-background-sunset-sky-orange-purple-1-hex { color: #8C546E; }
+.abstract-watercolor-background-sunset-sky-orange-purple-2-hex { color: #D9A7BE; }
+.abstract-watercolor-background-sunset-sky-orange-purple-3-hex { color: #B3E0F2; }
+.abstract-watercolor-background-sunset-sky-orange-purple-4-hex { color: #F2D3AC; }
+.abstract-watercolor-background-sunset-sky-orange-purple-5-hex { color: #F2C6AC; }
 
 
 
 
-.upload-file-title{
-  font-weight:bold;
-  margin-bottom:1rem;
-  font-size:1.2rem;
-}

@@ -1,35 +1,42 @@
-import{ useState } from 'react'
+import{ useState, useEffect } from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
-import FileUpload from './components/FileUpload';
-import FileList from './components/FileList';
 import Header from './components/Header';
 import {Routes, Route } from 'react-router-dom'
-import Home from './Home';
 import AvailableItemsList from './components/AvailableItemsList';
 import UploadItemForm from './components/UploadItemForm';
 import LandingPage from './components/LandingPage';
+import axios from 'axios';
 
 function App() {
+  const[itemCategory, setItemCategory]=useState('')
+  const[itemTitle, setItemTitle]=useState('')
+  const[itemDate, setItemDate]=useState()
+  const [images, setImages]=useState([])
+  const [newImage, setNewImage]=useState() 
+  const[owner, setOwner]=useState('')
+  const[items, setItems]=useState([])
 
-//   const [files, setFiles]=useState([
-//     {
-//     name:'myfile.pdf'
-//    },
-//    {
-//     name:'myfile2.pdf'
-//   },
-//   {
-//     name:'myfile3.pdf'
-//   },
-// ])
+  const BASE_URL = "http://localhost:8000/api/items";
+  const getItems = () => {
+    axios.get(BASE_URL).then((res) => {
+      // console.log(res.data)
+      setItems(res.data);
+      // setIsDeleted(false)
+      // setIsCreated(false)
+      console.log(items);       //getting all the items inititally 
+    });                            
+  };
 
-//   const removeFile = (filename)=>{
-//     setFiles(files.filter(file => file.name !== filename))
-//     // filtering the files that do not equal the file we want to remove 
-//   }
+  useEffect(() => {
+    getItems();
+  }, []);
 
-//   console.log(files)
+
+
+
+
+
 
   return (
     <div className="app-container">
@@ -39,10 +46,8 @@ function App() {
       <Routes>
         <Route path="/" element={<AvailableItemsList/>} />
       </Routes>
-      <UploadItemForm/>
-      {/* <p className="upload-file-title">Upload File</p>
-      <FileUpload files={files} setFiles={setFiles} removeFile={removeFile}/>
-      <FileList files={files} removeFile={removeFile}/> */}
+      <UploadItemForm itemCategory={itemCategory} setItemCategory={setItemCategory} itemTitle={itemTitle} setItemTitle={setItemTitle} itemDate={itemDate} setItemDate={setItemDate} images={images} setImages={setImages} newImage={newImage} setNewImage={setNewImage} owner={owner} setOwner={setOwner} items={items} setItems={setItems}/>
+    
     </div>
   );
 }

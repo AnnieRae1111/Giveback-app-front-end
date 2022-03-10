@@ -1,21 +1,31 @@
 .header-container{
     height: 80px;
     display:flex;
-    justify-content: space-evenly;
-    background-color: #BAD9C8;
+    justify-content: flex-start;
+    /* background-image: linear-gradient(to bottom right,#517360,#BAD9C8); */
+    background-color: #F2D3AC;
+    /* background-color: black; */
+    /* background-color: #BAD9C8; */
 
 }
+
+
 
 .good-karma-link,
 .signup-link,
 .signin-link,
 .feature-link{
-    margin-left:20px;
+    margin-left:10px;
     margin-top: 20px;
-    margin-right:20px;
+    margin-right:10px;
+    color:white;
+    
+    
     
 }
 
 .good-karma-logo{
     margin-top: 10px;
+    color:white;
+    margin-left:40px;
 }

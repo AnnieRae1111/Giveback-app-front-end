@@ -11,25 +11,21 @@ import {
     Button
 } from 'reactstrap'
 
-    const UploadItemForm = () => {
-        const[itemCategory, setItemCategory]=useState('')
-        const[itemTitle, setItemTitle]=useState('')
-        const[itemDate, setItemDate]=useState()
-        const [images, setImages]=useState([])
-        const [newImage, setnewImage]=useState() 
-        const[owner, setOwner]=useState('')
-    
-        // let newItem = {
-        //     category:itemCategory,
-        //     title: itemTitle,
-        //     date_posted: itemDate,
-        //     owner: owner,
-        //     images: images,
+    const UploadItemForm = ({itemCategory, setItemCategory, itemTitle, setItemTitle, itemDate, setItemDate, images, setImages, newImage, setNewImage, owner, setOwner,items, setItems}) => {
 
-        // }
+        let newItem = {
+            category:itemCategory,
+            title: itemTitle,
+            date_posted: itemDate,
+            owner: owner,
+            images: images,
+
+        }
+
+        console.log(items)
 
 
-
+        //setting images state // probably don't need this  
         const uploadImage = (event)=> {
             event.preventDefault()
             setImages([...images, newImage])
@@ -39,17 +35,19 @@ import {
             // imageData.append('owner', owner)
 
             // console.log(imageData)
-            
+            console.log(images)
         
 
         }
 
-
-        const onUpload = (event)=> {
+        //posting to database ad setting items state 
+        const onSubmit = (event)=>  {
             event.preventDefault()
             setImages([...images, newImage])
             console.log(images)
-
+            setItems(newItem)
+            setItems([...items, newItem])
+            console.log(items)
             const data = new FormData()
             data.append('itemCategory', itemCategory)
             data.append('images', images)
@@ -60,7 +58,8 @@ import {
 
 
             console.log(data)
-            
+
+
             axios.post("http://localhost:8000/api/items", data, {
                 headers: {
                 "Content-Type": "multipart/form-data"
@@ -72,16 +71,6 @@ import {
             .catch((error) => {
               // error response
             });
-
-
-
-            // axios.post('http//localhost:8000/api/items', newItem)
-            // .then((response)=> {
-            //     console.log(response)
-            // })
-            // .catch((error)=>{
-            //     console.log(error)
-            // })
         }
         
 
@@ -91,12 +80,13 @@ import {
         }
 
 
-        console.log(images)
+
 
 
 
     return (  
             <div className="upload-form-container">
+                <img src="https://good-karma-bucket123.s3.amazonaws.com/dca44a814834aa5ae0b8ff486c566785" alt="s3"></img>
             <Form id="upload-form">
                 <FormGroup>
                     <Label for="categories">
@@ -170,7 +160,7 @@ import {
                     name="file"
                     type="file"
                     accept="image/*"
-                    onChange={(event)=>{setnewImage(event.target.files[0])}}
+                    onChange={(event)=>{setNewImage(event.target.files[0])}}
                     />
                     <FormText>
                     This is some placeholder block-level help text for the above input. It's a bit lighter and easily wraps to a new line.
@@ -179,11 +169,11 @@ import {
                 <Button type="submit" onClick={uploadImage} id="submit-button">
                     Upload Image
                 </Button><br/>
-                <Button type="submit" onClick={onUpload} id="submit-button">
+                <Button type="submit" onClick={onSubmit} id="submit-button">
                     Add New Item
                 </Button>
             </Form>
-            <img src="haryo-setyadi-acn5ERAeSb4-unsplash.jpg" alt="s3" />
+            
             </div>
                 );
             }
