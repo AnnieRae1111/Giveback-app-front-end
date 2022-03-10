@@ -15,6 +15,7 @@ function App() {
   const [images, setImages]=useState([])
   const [newImage, setNewImage]=useState() 
   const[owner, setOwner]=useState('')
+  const[description, setDescription]=useState('')
   const[items, setItems]=useState([])
 
   const BASE_URL = "http://localhost:8000/api/items";
@@ -46,7 +47,7 @@ function App() {
       <Routes>
         <Route path="/" element={<AvailableItemsList/>} />
       </Routes>
-      <UploadItemForm itemCategory={itemCategory} setItemCategory={setItemCategory} itemTitle={itemTitle} setItemTitle={setItemTitle} itemDate={itemDate} setItemDate={setItemDate} images={images} setImages={setImages} newImage={newImage} setNewImage={setNewImage} owner={owner} setOwner={setOwner} items={items} setItems={setItems}/>
+      <UploadItemForm itemCategory={itemCategory} setItemCategory={setItemCategory} itemTitle={itemTitle} setItemTitle={setItemTitle} itemDate={itemDate} setItemDate={setItemDate} images={images} setImages={setImages} newImage={newImage} setNewImage={setNewImage} owner={owner} setOwner={setOwner} items={items} setItems={setItems} description={description} setDescription={setDescription}/>
     
     </div>
   );

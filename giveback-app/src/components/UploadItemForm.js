@@ -11,31 +11,33 @@ import {
     Button
 } from 'reactstrap'
 
-    const UploadItemForm = ({itemCategory, setItemCategory, itemTitle, setItemTitle, itemDate, setItemDate, images, setImages, newImage, setNewImage, owner, setOwner,items, setItems}) => {
+const UploadItemForm = ({itemCategory, setItemCategory, itemTitle, setItemTitle, itemDate, setItemDate, images, setImages, newImage, setNewImage, owner, setOwner,items, setItems, description, setDescription}) => {
 
         let newItem = {
             category:itemCategory,
             title: itemTitle,
             date_posted: itemDate,
             owner: owner,
+            description:description,
             images: images,
 
         }
 
         console.log(items)
 
-
         //setting images state // probably don't need this  
         const uploadImage = (event)=> {
             event.preventDefault()
             setImages([...images, newImage])
             console.log(images)
-            // const imageData = new FormData()
-            // imageData.append('newImage', newImage)
-            // imageData.append('owner', owner)
 
-            // console.log(imageData)
-            console.log(images)
+            axios.post('http://localhost:8000/api/items', newItem)
+                .then((response)=> {
+                    console.log(response)
+                })
+                .catch((error)=>{
+                    console.log(error)
+                })
         
 
         }
@@ -54,23 +56,25 @@ import {
             data.append('itemTitle', itemTitle)
             data.append('itemDate', itemDate)
             data.append('owner', owner)
+            data.append('description', description)
             data.append('newImage', newImage)
 
 
             console.log(data)
 
 
-            axios.post("http://localhost:8000/api/items", data, {
+            axios.post("http://localhost:8000/api/items", data, items, {
                 headers: {
                 "Content-Type": "multipart/form-data"
                 }
-            })
-            .then((response) => {
-              // successfully uploaded response
-            })
-            .catch((error) => {
-              // error response
-            });
+                })
+                .then((response) => {
+                // successfully uploaded response
+                })
+                .catch((error) => {
+                // error response
+                });
+
         }
         
 
@@ -78,9 +82,6 @@ import {
             setImages(images.filter(file => file.name !== filename))
             // filtering the files that do not equal the file we want to remove 
         }
-
-
-
 
 
 
@@ -149,6 +150,18 @@ import {
                     placeholder="owner"
                     type="text"
                     onChange={(event)=>{setOwner(event.target.value)}}
+                    />
+                </FormGroup>
+                <FormGroup>
+                    <Label id="description-label" for="description">
+                    Description:
+                    </Label>
+                    <Input
+                    id="description"
+                    name="description"
+                    placeholder="descriptionr"
+                    type="text"
+                    onChange={(event)=>{setDescription(event.target.value)}}
                     />
                 </FormGroup>
                 <FormGroup>
