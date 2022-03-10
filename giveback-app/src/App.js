@@ -44,10 +44,11 @@ function App() {
       <Header/>
       {/* <Home/> */}
       <LandingPage/>
-      <Routes>
-        <Route path="/" element={<AvailableItemsList/>} />
-      </Routes>
       <UploadItemForm itemCategory={itemCategory} setItemCategory={setItemCategory} itemTitle={itemTitle} setItemTitle={setItemTitle} itemDate={itemDate} setItemDate={setItemDate} images={images} setImages={setImages} newImage={newImage} setNewImage={setNewImage} owner={owner} setOwner={setOwner} items={items} setItems={setItems} description={description} setDescription={setDescription}/>
+      <Routes>
+        <Route path="/" element={<AvailableItemsList items={items}/>} />
+      </Routes>
+
     
     </div>
   );

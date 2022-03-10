@@ -1,4 +1,42 @@
 .available-items-container{
-    height: 400px;
-    background-color: #F2D3AC;
+    /* height: 600px; */
+    background-color: #496D8C;
+  
+}
+
+/*-------Available Items List ----------*/
+
+h1{
+    text-align: center;
+    margin-top:40px;
+}
+
+
+
+
+
+/*-------Available Items Card ----------*/
+.available-items-card{
+    border:5px solid #2E4552;
+    margin: 10px 0px 10px 0px;
+    border-radius:10px;
+}
+
+
+.card-body{
+    height:300px;
+    
+}
+
+.claim-item-button{
+    background-color:#BAD9C8; ;
+    height:50px;
+    width:120px;
+    border-radius: 10px;
+    outline:none;
+    border:3px solid #517360 ;
+}
+
+.claim-item-button:hover{
+    box-shadow: 10px 5px 5px #8FA4BF;
 }

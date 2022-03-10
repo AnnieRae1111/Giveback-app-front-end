@@ -5,7 +5,11 @@
 .BASIK-4-hex { color: #BAD9C8; }
 .BASIK-5-hex { color: #0D0D0D; }
 
-
+Blue {color:#496D8C}
+Dark Blue {color:#2E4559}
+off white {color:#f2EfC2}
+tan {color:#D9AB91}
+rus {color:#8C5549}
 
 /* Color Theme Swatches in Hex */
 .Mysterious-purple---red-tunnel-and-blue-sky-1-hex { color: #73020C; }
@@ -22,5 +26,9 @@
 .abstract-watercolor-background-sunset-sky-orange-purple-5-hex { color: #F2C6AC; }
 
 
-
+body{
+  margin:0;
+  /* margin:10px; */
+  background-color:#f2EfC2;
+}
 
