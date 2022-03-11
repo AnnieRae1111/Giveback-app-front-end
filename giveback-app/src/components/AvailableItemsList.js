@@ -13,14 +13,14 @@ const AvailableItemsList = ({items}) => {
              items.map((item,key) => {
                  return (
                      <AvailableItemsCard
-                     key={item.id}
+                     key={item.title}
                      category={item.category}
                      title={item.title}
                      datePosted={item.date_posted}
                      postedBy={item.owner}
                      images={item.images[0]}
                      description={item.description}
-                     imageUrl={item.imageUrl}
+                     photoUrl={item.photoUrl}
                      />
                  )
              })
