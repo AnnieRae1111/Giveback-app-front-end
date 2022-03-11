@@ -14,7 +14,7 @@ from 'reactstrap'
 
 
 
-const AvailableItemsCard = ({category, title,key,date_posted, postedBy,images, description}) => {
+const AvailableItemsCard = ({category, imageUrl,title,key,date_posted, postedBy,images, description}) => {
     return (  
         <div className="available-items-card-container">
             {/* <Row xs="1" m="2" l="2" xl="2" s="2"> */}
@@ -24,8 +24,7 @@ const AvailableItemsCard = ({category, title,key,date_posted, postedBy,images, d
             <Card className="available-items-card">
                 <CardImg
                 alt="Card image cap"
-                src= "https://i.imgur.com/TJMdSHN.jpg"
-                // src="andrea-davis-duXRC8vT5wQ-unsplash.jpg"
+                src="https://i.imgur.com/TJMdSHN.jpg"
                 top
                 width="100%"
                 />

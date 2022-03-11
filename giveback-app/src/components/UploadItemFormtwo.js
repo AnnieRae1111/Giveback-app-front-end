@@ -11,8 +11,8 @@ import {
     Button
 } from 'reactstrap'
 
-const UploadItemForm = ({imageUrl, setImageUrl, itemCategory, setItemCategory, itemTitle, setItemTitle, itemDate, setItemDate, images, setImages, owner, setOwner,items, setItems, description, setDescription, file, setFile}) => {
-    console.log(items)
+const UploadItemFormTwo = ({imageUrl, setImageUrl, itemCategory, setItemCategory, itemTitle, setItemTitle, itemDate, setItemDate, images, setImages, newItem, setNewItem, owner, setOwner,items, setItems, description, setDescription, file, setFile}) => {
+
         // const[imageUrl, setImageUrl] = useState()
         const displayImage = (event)=> {
             let file = event.target.files[0]
@@ -20,45 +20,54 @@ const UploadItemForm = ({imageUrl, setImageUrl, itemCategory, setItemCategory, i
             console.log(file)
             setImageUrl(URL.createObjectURL(file))
             console.log(imageUrl)
-            setImages([...images,file.name])
-            console.log(images, "these are the images")
         }
 
-        // const handleChange = (event)=> {
-        //     console.log(event)
-        //     const value = event.target.value
-        //     const name = event.target.name
-        //     // setNewItem((prevState)=> ({
-        //     //     ...prevState, 
-        //     //     [name]:value
-        //     // }))
-        //     setNewItem(values => ({...values, [name]:value}))
-        //     setItems(...items, newItem)
-        //     console.log(newItem, "this is the new item")
-        //     console.log(items, 'these are the items')
-        // }
 
-        let newItem = {
-            category: itemCategory,
-            title: itemTitle,
-            date_posted: itemDate,
-            owner: owner,
-            description:description,
-            images: images,
-            url:imageUrl
+        //setting images state // probably don't need this  
+        const uploadImage = async(event)=> {
+            event.preventDefault()
+            const data = new FormData()
+            data.append('file', file)
+            axios.post("http://localhost:8000/api/items", data, items, {
+                headers: {
+                "Content-Type": "multipart/form-data"
+                }
+                })
+                .then((response) => {
+                    console.log(response)
+                    setImages([...images,file])
+                    setFile("")
+                })
+                .catch((error) => {
+                // error response
+                });
+         
         }
-    
 
-        const addNewItem = (event) => {
-        
-            setItems([...items, newItem])
-            console.log(items, "these are all of the items")
-
-        }
 
         const onFormSubmit = (event)=> {
             event.preventDefault()
         }
+
+        //posting to database ad setting items state 
+        const addNewItem = (event)=>  {
+            event.preventDefault()
+            setImages([...images, file])
+            console.log(images, "this is the images array")
+            setNewItem({
+                category:itemCategory,
+                title:itemTitle,
+                date_posted: itemDate,
+                description: description,
+                owner: owner,
+                url: imageUrl,
+            })
+            console.log(newItem,'this is the new item')
+            setItems([...items, newItem])
+            console.log(items, "thse are all the items")
+        
+        }
+        
 
         const removeFile = (filename)=>{
             setImages(images.filter(file => file.name !== filename))
@@ -66,8 +75,10 @@ const UploadItemForm = ({imageUrl, setImageUrl, itemCategory, setItemCategory, i
         }
 
 
+
     return (  
             <div className="upload-form-container">
+               
             <Form id="upload-form" onSubmit={onFormSubmit}>
                 <FormGroup>
                     <Label for="categories">
@@ -77,8 +88,7 @@ const UploadItemForm = ({imageUrl, setImageUrl, itemCategory, setItemCategory, i
                     id="category"
                     name="category"
                     type="select"
-                    // value={newItem.itemCategory}
-                    onChange = {(event)=>{setItemCategory(event.target.value)}}
+                    onChange={(event)=>{setItemCategory(event.target.value)}}
                     >
                     <option>
                         Clothing
@@ -106,8 +116,7 @@ const UploadItemForm = ({imageUrl, setImageUrl, itemCategory, setItemCategory, i
                     name="title"
                     placeholder="title"
                     type="text"
-                    // value={newItem.itemTitle}
-                    onChange = {(event)=>{setItemTitle(event.target.value)}}
+                    onChange={(event)=>{setItemTitle(event.target.value)}}
                     />
                 </FormGroup>
                 <FormGroup>
@@ -119,8 +128,7 @@ const UploadItemForm = ({imageUrl, setImageUrl, itemCategory, setItemCategory, i
                     name="date"
                     placeholder="date placeholder"
                     type="date"
-                    // value={newItem.itemDate}
-                    onChange = {(event)=>{setItemDate(event.target.value)}}
+                    onChange={(event)=>{setItemDate(event.target.value)}}
                     />
                 </FormGroup>
                 <FormGroup>
@@ -132,8 +140,7 @@ const UploadItemForm = ({imageUrl, setImageUrl, itemCategory, setItemCategory, i
                     name="owner"
                     placeholder="owner"
                     type="text"
-                    // value={newItem.owner}
-                    onChange = {(event)=>{setOwner(event.target.value)}}
+                    onChange={(event)=>{setOwner(event.target.value)}}
                     />
                 </FormGroup>
                 <FormGroup>
@@ -145,8 +152,7 @@ const UploadItemForm = ({imageUrl, setImageUrl, itemCategory, setItemCategory, i
                     name="description"
                     placeholder="descriptionr"
                     type="text"
-                    // value={newItem.description}
-                    onChange = {(event)=>{setDescription(event.target.value)}}
+                    onChange={(event)=>{setDescription(event.target.value)}}
                     />
                 </FormGroup>
                 <FormGroup>
@@ -160,8 +166,11 @@ const UploadItemForm = ({imageUrl, setImageUrl, itemCategory, setItemCategory, i
                     accept="image/*"
                     onChange={displayImage}
                     />
+                    <FormText>
+                    This is some placeholder block-level help text for the above input. It's a bit lighter and easily wraps to a new line.
+                    </FormText>
                 </FormGroup>
-                <Button type="submit" id="submit-button">
+                <Button type="submit" onClick={uploadImage} id="submit-button">
                     Upload Image
                 </Button><br/>
                 <Button type="submit" onClick={addNewItem} id="submit-button">
@@ -173,4 +182,4 @@ const UploadItemForm = ({imageUrl, setImageUrl, itemCategory, setItemCategory, i
                 );
             }
             
-        export default UploadItemForm
+        export default UploadItemFormTwo
