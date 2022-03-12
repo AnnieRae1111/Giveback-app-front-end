@@ -42,9 +42,16 @@ const UploadItemForm = ({photoUrl, setPhotoUrl,imageUrl, setImageUrl, itemCatego
 
         }
 
-        const DeleteItem = (event) => {
+        // const DeleteItem = (event) => {
+        //     let deleteUrl = `http://localhost:8000/api/items/${event._id}`
+        //     console.log(deleteUrl)
+        //     axios.delete(deleteUrl, event._id)
+        //     console.log(event._id)
+        //     .then(setItems(
+        //         items.filter((deletedItem)=> deletedItem.event._id !== event._id )
+        //     ))
 
-        }
+        // }
 
         const onFormSubmit = (event)=> {
             event.preventDefault()

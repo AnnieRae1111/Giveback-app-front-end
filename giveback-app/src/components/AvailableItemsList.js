@@ -3,7 +3,7 @@ import '../css/AvailableItems.css'
 import AvailableItemsCard from './AvailableItemsCard';
 import {Row } from 'reactstrap'
 
-const AvailableItemsList = ({items}) => {
+const AvailableItemsList = ({items, setItems}) => {
     console.log(items)
     return (  
         <div className="available-items-container">
@@ -21,6 +21,9 @@ const AvailableItemsList = ({items}) => {
                      images={item.images[0]}
                      description={item.description}
                      photoUrl={item.photoUrl}
+                     items={item}
+                     setItems={setItems}
+                     itemId={item._id}
                      />
                  )
              })
