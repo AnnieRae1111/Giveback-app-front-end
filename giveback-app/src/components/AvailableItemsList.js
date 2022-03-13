@@ -10,10 +10,10 @@ const AvailableItemsList = ({items, setItems}) => {
         <h1> Available Items </h1>
             <Row xl="3" xs="1" s="1" m="2" l="3">
             {
-             items.map((item,key) => {
+             items.map((item) => {
                  return (
                      <AvailableItemsCard
-                     key={item.title}
+                     key={item._id}
                      category={item.category}
                      title={item.title}
                      datePosted={item.date_posted}

@@ -160,7 +160,6 @@ const UploadItemForm = ({photoUrl, setPhotoUrl,imageUrl, setImageUrl, itemCatego
                 </Button>
                 
             </Form>
-            <img className="preview-image" src={imageUrl} alt=""/> 
             </div>
                 );
             }

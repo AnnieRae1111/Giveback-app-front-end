@@ -8,7 +8,7 @@ import UploadItemForm from './components/UploadItemForm';
 import LandingPage from './components/LandingPage';
 import axios from 'axios';
 
-import UploadFile from './components/UploadFile';
+
 
 function App() {
   const[imageUrl, setImageUrl] = useState()
@@ -53,9 +53,8 @@ function App() {
       <LandingPage/>
       
       <UploadItemForm getItems={getItems} photoUrl={photoUrl} setPhotoUrl={setPhotoUrl} imageUrl={imageUrl} setImageUrl={setImageUrl} itemCategory={itemCategory} setItemCategory={setItemCategory} itemTitle={itemTitle} setItemTitle={setItemTitle} itemDate={itemDate} setItemDate={setItemDate} images={images} setImages={setImages} file={file} setFile={setFile} owner={owner} setOwner={setOwner} items={items} setItems={setItems} description={description} setDescription={setDescription} />
-      {/* <UploadFile images={images} setImages={setImages}/> */}
       <Routes>
-        <Route path="/" element={<AvailableItemsList items={items} setItems={setItems} imageUrl={imageUrl} setImageUrl={setImageUrl} items={items}/>} />
+        <Route path="/" element={<AvailableItemsList items={items} setItems={setItems}  />} />
       </Routes>
 
     
