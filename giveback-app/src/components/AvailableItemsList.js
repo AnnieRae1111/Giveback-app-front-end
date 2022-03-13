@@ -24,6 +24,7 @@ const AvailableItemsList = ({items, setItems}) => {
                      items={item}
                      setItems={setItems}
                      itemId={item._id}
+                     allItems={items}
                      />
                  )
              })

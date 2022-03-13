@@ -1,3 +1,17 @@
+/* @font-face {
+    font-family: tangerine;
+    src: url('tangerine-webfont.woff');
+} */
+
+@font-face {
+    font-family: 'tangerineregular';
+    src: url('/src/fonts/tangerine-webfont.woff2') format('woff2'),
+         url('/src/fonts/tangerine-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
 .landing-page-container{
     height: 700px;
     background-color:#2E4559 ;
@@ -12,6 +26,7 @@
 
 .good-karma-landing-title{
     margin-top: 50px;
+    font-family:tangerineregular;
 }
 .landing-page-image{
     height:450px;

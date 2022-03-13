@@ -16,17 +16,26 @@
 
 
 
-    const AvailableItemsCard = ({itemId, photoUrl,category,title,date_posted, postedBy, description}) => {
-        const[claimed, setClaimed]=useState([])
+    const AvailableItemsCard = ({allItems, itemId, photoUrl,category,title,date_posted, postedBy, description}) => {
+    
+        console.log(allItems, "all items array")
+        
+        const[claimed, setClaimed]=useState([{
+            _id:'622be8531721385d2f9f2969',
+            category: 'clothing',
+            title: 'long-sleeve shirt',
+            date_posted:'03-02-2022',
+            photoUrl:'https://i.imgur.com/5fDoBqY.jpg',
+        }])
         const[availableItems, setAvailableItems]=useState([])
         const[itemHistory, setItemHistory]=useState([])
         
 
-        const claimItem = (item) => {
+        const claimItem = () => {
 
-            let itemToClaim =availableItems.filter((claimed) => {
-                console.log(itemId, "item id")
-                console.log(claimed._id, "claimed id ")
+            let itemToClaim =allItems.filter((claimed) => {
+                // console.log(itemId, "item id")
+                // console.log(claimed._id, "claimed id ")
                 return (
                     claimed._id === itemId
                 ) 
@@ -35,34 +44,30 @@
             })
             console.log(itemToClaim, "item that has been claimed")
             
-            setClaimed([...claimed, itemToClaim])
+            // setClaimed([...claimed, itemToClaim])
+            setClaimed(...claimed, itemToClaim)
+            setItemHistory([...itemHistory, claimed])
+            console.log(claimed, "claimed items array")
+
         }
 
-  
-    
-
-        console.log(claimed, "claimed items array")
-
-        // const claimItem = (itemId)=> {
-        //     let itemToClaim = availableItems.filter(item => item !== item.itemId)
-            
-        //     console.log(itemToClaim, "item to claim")
-        // }
+        console.log(itemHistory, "item history array")
+        
 
         const BASE_URL = "http://localhost:8000/api/items";
     
-        const getAllItems = () => {
-        axios.get(BASE_URL).then((res) => {
-            setAvailableItems(res.data);
-            console.log(availableItems);      
-        });                            
-        };
+        // const getAllItems = () => {
+        // axios.get(BASE_URL).then((res) => {
+        //     setAvailableItems(res.data);
+        //     console.log(availableItems);      
+        // });                            
+        // };
     
-        useEffect(() => {
-        getAllItems();
-        }, []);
+        // useEffect(() => {
+        // getAllItems();
+        // }, []);
     
-        console.log(availableItems)
+       
 
             const deleteUrl=`http://localhost:8000/api/items/${itemId}`
             const deleteItem = async (event) => {

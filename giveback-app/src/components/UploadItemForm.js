@@ -57,12 +57,7 @@ const UploadItemForm = ({photoUrl, setPhotoUrl,imageUrl, setImageUrl, itemCatego
             event.preventDefault()
         }
 
-        const claimItem = (filename)=>{
-            setItems(items.filter(file => file.name !== filename))
-    
-        }
-
-
+        
     return (  
             <div className="upload-form-container">
             <Form id="upload-form" onSubmit={onFormSubmit}>
