@@ -51,6 +51,7 @@
 
         const handleShow = () => {
             setShow(!show)
+            setIsEdited(true)
         }
 
        
@@ -121,19 +122,17 @@
                         <strong>Category:</strong> {category}
                     </CardTitle>
                     
-                        {
-                        isEdited ? <CardText>{editCategory}</CardText>
-                        :  <CardText>{category}</CardText>
-                        }
+                        {isEdited ? 
+                        <CardText>{editCategory}</CardText>
+                    : <CardText>{category}</CardText>}
                     <CardSubtitle
                         className="mb-2 text-muted"
                         tag="h6"
                     >
                     <strong>Title:</strong> 
-                    {
-                    isEdited ? <CardText>{editTitle}</CardText>
-                    : <CardText>{title}</CardText>
-                    }
+                    {isEdited ? 
+                        <CardText>{editTitle}</CardText>
+                    : <CardText>{title}</CardText>}
                     </CardSubtitle>
                     <CardText>
                         <strong>Date Posted:</strong> 
@@ -141,21 +140,20 @@
                     <CardText>
                     <strong>Posted By:</strong> {postedBy}
                     </CardText>
-                    { 
-                    isEdited ? <CardText>{editDate}</CardText>
-                    : <CardText>{date_posted}</CardText>
-                    }
+                    {isEdited ? 
+                        <CardText>{editDate}</CardText>
+                    : <CardText>{date_posted}</CardText>}
                     <CardText>
                         <strong>Description:</strong> 
-                        {
-                        isEdited ?<CardText>{editDescription}</CardText>
-                          : <CardText>{description}</CardText>}
+                        {isEdited ? 
+                        <CardText>{editDescription}</CardText>
+                    : <CardText>{description}</CardText>}
                     </CardText>
-                    <button  className="claim-item-button" onClick={claimItem}>Claim item</button>
-                    <button className="claim-item-button" onClick={deleteItem}>Delete Post</button>
+                    <button  className="claim-item-button" onClick={claimItem}>Claim item</button><br/>
+                    <button className="claim-item-button" onClick={deleteItem}>Delete Post</button><br/>
                     <Button className="edit-post-button" onClick={handleShow}>EDIT</Button>
                     {show && <EditPostModal editTitle={editTitle} closeModal={handleClose}/>}
-            </CardBody>
+                    </CardBody>
             </Card>
             </CardColumns>
             </Col>

@@ -7,15 +7,13 @@ import {
     Button
 } from 'reactstrap'
 
-const EditPostModal = ({submitEdits, closeModal, setEditCategory, setEditDate, setEditDescription, setEditOwner, setEditTitle, setEditPhotoUrl}) => {
+import '../css/EditPostModal.css'
+const EditPostModal = ({submitEdits, closeModal,handleEditDescription, handleEditCategory, handleEditTitle,handlePhotoEdit}) => {
 
-const editCategory = (event)=>{
-    console.log(event,"event")
-    setEditCategory(event.target.value)
-}
+
 
     return ( 
-        <div className="edit-post-modal">
+        <div className="edit-post-modal-container">
             <Form id="edit-post-form"  >
                 <FormGroup>
                     <Label for="edit-categories">
@@ -25,7 +23,7 @@ const editCategory = (event)=>{
                     id="edit-category"
                     name="edit-category"
                     type="select"
-                    onChange={(event)=> editCategory(event)}
+                    onChange={handleEditCategory}
                     >
                     <option>
                         Clothing
@@ -49,10 +47,10 @@ const editCategory = (event)=>{
                     name="edit-title"
                     placeholder="Edit Title"
                     type="text"
-                    onChange = {(event)=>setEditTitle(event.target.value)}
+                    onChange = {handleEditTitle}
                     />
                 </FormGroup>
-                <FormGroup>
+                {/* <FormGroup>
                     <Label for="exampleDate">
                     Date
                     </Label>
@@ -61,10 +59,9 @@ const editCategory = (event)=>{
                     name="edit-date"
                     placeholder="Edit Date"
                     type="date"
-                    onChange = {(event)=>setEditDate(event.target.value)}
                     />
-                </FormGroup>
-                <FormGroup>
+                </FormGroup> */}
+                {/* <FormGroup>
                     <Label id="own-label" for="edit-owner">
                     Owner:
                     </Label>
@@ -75,7 +72,7 @@ const editCategory = (event)=>{
                     type="text"
                     onChange = {(event)=>{setEditOwner(event.target.value)}}
                     />
-                </FormGroup>
+                </FormGroup> */}
                 <FormGroup>
                     <Label id="description-label" for="description">
                     Description:
@@ -85,7 +82,7 @@ const editCategory = (event)=>{
                     name="edit-description"
                     placeholder="Edit Description"
                     type="text"
-                    onChange = {(event)=>setEditDescription(event.target.value)}
+                    onChange = {handleEditDescription}
                     />
                 </FormGroup>
                 <FormGroup>
@@ -96,7 +93,7 @@ const editCategory = (event)=>{
                     id="edit-photo-url"
                     name="edit-photo-url"
                     type="text"
-                    onChange = {(event)=>setEditPhotoUrl(event.target.value)}
+                    onChange = {handlePhotoEdit}
                     />
                 </FormGroup>
             </Form>

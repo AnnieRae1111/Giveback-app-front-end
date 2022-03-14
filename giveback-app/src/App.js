@@ -33,12 +33,36 @@ function App() {
   // })
 
 
+  
   const[editCategory, setEditCategory]=useState('')
   const[editTitle, setEditTitle]=useState('')
   const[editDate, setEditDate]=useState('')
   const[editOwner, setEditOwner]=useState('')
   const[editDescription,setEditDescription]=useState('')
   const[editPhotoUrl, setEditPhotoUrl]=useState('')
+
+
+  const handleEditCategory = (event) => {
+    event.preventDefault()
+    setEditCategory(event.target.value)
+  }
+
+  const handleEditTitle = (event) => {
+    event.preventDefault()
+    setEditTitle(event.preventDefault)
+  }
+
+  const handlePhotoEdit = (event) => {
+    event.preventDefault()
+    setEditPhotoUrl(event.target.value)
+  }
+
+  const handleEditDescription = (event) => {
+    event.preventDefault()
+    setEditDescription(event.target.value)
+  }
+
+
 
   const[isEdited, setIsEdited]=useState(false)
 
@@ -55,8 +79,37 @@ function App() {
   }, []);
 
 
+  let editedItem = {
+    itemCategory:editCategory, 
+    itemDate: editTitle,
+    photoUrl: editPhotoUrl,
+    description:editDescription
+  }
 
-const submitEdits = () => setIsEdited(true)
+
+ 
+
+const submitEdits = async (id,event) => {
+  setItemCategory(editCategory)
+  setItemTitle(editTitle)
+  setDescription(editDescription)
+  setItemDate(editDate)
+  setPhotoUrl(editPhotoUrl)
+  console.log(itemCategory, "item category on update")
+  console.log(itemTitle, "item title onpdate")
+  console.log(description, 'item descriptoin on update')
+  const updateUrl=`http://localhost:8000/api/items/${id}`
+  event.preventDefault()
+  console.log("submit eidts function")
+  setIsEdited(true)
+  await axios({
+    method: 'DELETE',
+    url: updateUrl,
+    data:editedItem,
+  })
+  .then(res=> console.log(res, "axios put"))
+  
+}
 
 
   return (
@@ -68,9 +121,11 @@ const submitEdits = () => setIsEdited(true)
       <Routes>
         <Route path="/" element={<AvailableItemsList setIsEdited={setIsEdited} isEdited={isEdited} items={items} setItems={setItems} editCategory={editCategory} setEditCategory={setEditCategory} editTitle={editTitle}setEditTitle={setEditTitle} editDate={editDate} setEditDate={setEditDate} 
         editDescription={editDescription} setEditDescription={setEditDescription} editOwner={editOwner} setEditOwner={setEditOwner} editPhotoUurl={editPhotoUrl} setEditPhotoUrl={setEditPhotoUrl}  />} />
+        
         <Route path="/donate" elemet={<UploadItemForm/>}/>
         
-        <Route path="/edit-post" element={<EditPostModal submitEdits={submitEdits} setEditCategory={setEditCategory} setEditTitle={setEditTitle} setEditDate={setEditDate} setEditDescription={setEditDescription} setEditOwner={setEditOwner} setEditPhotoUrl={setEditPhotoUrl}/>} />
+        {/* <Route path="/edit-post" element={<EditPostModal submitEdits={submitEdits} setEditCategory={setEditCategory} setEditTitle={setEditTitle} setEditDate={setEditDate} setEditDescription={setEditDescription} setEditOwner={setEditOwner} setEditPhotoUrl={setEditPhotoUrl}/>} /> */}
+        <Route path="/edit-post" element={<EditPostModal submitEdits={submitEdits} handleEditCategory={handleEditCategory} handleEditDescription={handleEditDescription} handleEditTitle={handleEditTitle} handlePhotoEdit={handlePhotoEdit}/>} />
       </Routes>
     
    
