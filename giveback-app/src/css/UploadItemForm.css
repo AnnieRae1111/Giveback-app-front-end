@@ -1,6 +1,14 @@
+@font-face {
+    font-family: 'tangerineregular';
+    src: url('/src/fonts/tangerine-webfont.woff2') format('woff2'),
+          url('/src/fonts/tangerine-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
 
 .upload-form-container{
-    background-color:#f2EfC2;;
+    background-color:#40592E;
 }
 
 #upload-form{
@@ -9,16 +17,30 @@
     
 }
 
-#title-label{
+/* #title-label{
     margin-top: 40px;
-}
+} */
 
 #submit-button{
     margin-bottom: 40px;
+    border:3px solid  #344028;
+    background: #A68380;
+    border-radius: 10px;
 }
 
 .preview-image{
     height:300px;
     width:300px;
     
+}
+
+.donate-your-stuff{
+   font-family:tangerineregular;
+   margin-top:0;
+}
+
+
+
+.fill-out-form{
+    text-align: center;
 }

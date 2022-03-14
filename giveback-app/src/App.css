@@ -26,9 +26,19 @@ rus {color:#8C5549}
 .abstract-watercolor-background-sunset-sky-orange-purple-5-hex { color: #F2C6AC; }
 
 
+/* Color Theme Swatches in Hex */
+.Tropical-Monstera-leaves-at-pastel-pink-background,-summer-background-with-copy-space-for-design,-template-or-banner-1-hex { color: #40592E; }
+.Tropical-Monstera-leaves-at-pastel-pink-background,-summer-background-with-copy-space-for-design,-template-or-banner-2-hex { color: #344028; }
+.Tropical-Monstera-leaves-at-pastel-pink-background,-summer-background-with-copy-space-for-design,-template-or-banner-3-hex { color: #8EA66A; }
+.Tropical-Monstera-leaves-at-pastel-pink-background,-summer-background-with-copy-space-for-design,-template-or-banner-4-hex { color: #A68380; }
+.Tropical-Monstera-leaves-at-pastel-pink-background,-summer-background-with-copy-space-for-design,-template-or-banner-5-hex { color: #F2D0D0; }
+
+
+
+
 body{
   margin:0;
   /* margin:10px; */
-  background-color:#f2EfC2;
+  /* background-color:#f2EfC2; */
 }
 

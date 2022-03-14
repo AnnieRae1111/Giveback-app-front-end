@@ -6,7 +6,7 @@
 @font-face {
     font-family: 'tangerineregular';
     src: url('/src/fonts/tangerine-webfont.woff2') format('woff2'),
-         url('/src/fonts/tangerine-webfont.woff') format('woff');
+          url('/src/fonts/tangerine-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 
@@ -14,7 +14,7 @@
 
 .landing-page-container{
     height: 700px;
-    background-color:#2E4559 ;
+    background-color:#8EA66A ;
     display:flex;
     justify-content: center;
     align-items: center;
@@ -27,13 +27,23 @@
 .good-karma-landing-title{
     margin-top: 50px;
     font-family:tangerineregular;
+    font-size:70px;
+    color:white;
 }
+
+.good-karma-tagline{
+    margin-top: 20px;
+    color:white;
+    font-family:tangerineregular;
+}
+
 .landing-page-image{
     height:450px;
-    width:400px;
+    width:600px;
     /* border-radius: 50%; */
     border: 3px solid white;
-    border-radius: 200px 200px 0 0;
+    border-radius: 30px;
+    /* border-radius: 200px 200px 0 0; */
    
 }
 /* .good-karma-landing-title,

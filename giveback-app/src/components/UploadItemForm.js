@@ -59,7 +59,9 @@ const UploadItemForm = ({photoUrl, setPhotoUrl,imageUrl, setImageUrl, itemCatego
 
         
     return (  
-            <div className="upload-form-container">
+        <div className="upload-form-container">
+            <h1 className="donate-your-stuff">Donate Your Stuff</h1>
+            <h4 className="fill-out-form"> Fill out the form below to post your items</h4>
             <Form id="upload-form" onSubmit={onFormSubmit}>
                 <FormGroup>
                     <Label for="categories">
