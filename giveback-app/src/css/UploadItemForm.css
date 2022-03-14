@@ -36,11 +36,16 @@
 
 .donate-your-stuff{
    font-family:tangerineregular;
-   margin-top:0;
+   margin-top:30px;
 }
 
 
 
 .fill-out-form{
     text-align: center;
+}
+
+label{
+    color:white;
+    font-size: 20px;
 }

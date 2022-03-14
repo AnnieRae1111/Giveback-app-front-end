@@ -7,54 +7,74 @@
         CardTitle, 
         CardSubtitle,
         CardText,
-        Row
+        Row, 
+        Collapse,
+        Button, 
+        ModalHeader, 
+        Modal,
+        ModalBody,
+        ModalFooter
 
     }
     from 'reactstrap'
     import axios from 'axios'
-    import { useState, useEffect } from 'react'
+    import { useState } from 'react'
+    import EditPostModal from './EditPostModal'
 
 
 
-    const AvailableItemsCard = ({allItems, itemId, photoUrl,category,title,date_posted, postedBy, description}) => {
+
+    const AvailableItemsCard = ({isEdited, setIsEdited, editCategory, editTitle, editDate, editDescription, editOwner, editPhotUrl, items, setItems, itemId, photoUrl,category,title,date_posted, postedBy, description}) => {
     
-        console.log(allItems, "all items array")
+        console.log(items, "all items array")
         
-        const[claimed, setClaimed]=useState([{
-            _id:'622be8531721385d2f9f2969',
-            category: 'clothing',
-            title: 'long-sleeve shirt',
-            date_posted:'03-02-2022',
-            photoUrl:'https://i.imgur.com/5fDoBqY.jpg',
-        }])
+        // const[claimed, setClaimed]=useState([{
+        //     _id:'622be8531721385d2f9f2969',
+        //     category: 'clothing',
+        //     title: 'long-sleeve shirt',
+        //     date_posted:'03-02-2022',
+        //     photoUrl:'https://i.imgur.com/5fDoBqY.jpg',
+        // }])
+        const [claimed, setClaimed]=useState([])
         const[availableItems, setAvailableItems]=useState([])
         const[itemHistory, setItemHistory]=useState([])
+        const[isClaimed, setIsClaimed]=useState(false)
         
+        
+        // const[toggleEdit, setToggleEdit]=useState(false)
+        // const editItem = () => setToggleEdit(!toggleEdit)
+
+        const[show, setShow]=useState(false)
+
+        const handleClose = () => setShow(!show)
+        // const handleShow = () => setShow(!show)
+
+        const handleShow = () => {
+            setShow(!show)
+            setIsEdited(true)
+        }
+
+       
 
         const claimItem = () => {
-
-            let itemToClaim =allItems.filter((claimed) => {
-                // console.log(itemId, "item id")
-                // console.log(claimed._id, "claimed id ")
-                return (
-                    claimed._id === itemId
-                ) 
-            
-                
-            })
+            let itemToClaim = items.filter((claimed)=> claimed._id === itemId)
             console.log(itemToClaim, "item that has been claimed")
-            
-            // setClaimed([...claimed, itemToClaim])
-            setClaimed(...claimed, itemToClaim)
-            setItemHistory([...itemHistory, claimed])
-            console.log(claimed, "claimed items array")
+            setClaimed(itemToClaim)
+            setItemHistory(...claimed, itemToClaim)
+            console.log(itemHistory, "item History array")
+
+            let itemsNotClaimed = items.filter((item)=> item._id !== itemId)
+            console.log(itemsNotClaimed, "items not claimed")
+            setItems(itemsNotClaimed)
+            console.log(availableItems, "remaining items")
 
         }
 
-        console.log(itemHistory, "item history array")
+        console.log(claimed, "claimed items array")
+
         
 
-        const BASE_URL = "http://localhost:8000/api/items";
+        // const BASE_URL = "http://localhost:8000/api/items";
     
         // const getAllItems = () => {
         // axios.get(BASE_URL).then((res) => {
@@ -101,23 +121,37 @@
                     <CardTitle tag="h5">
                         <strong>Category:</strong> {category}
                     </CardTitle>
+                        {isEdited ? 
+                        <CardText>{editCategory}</CardText>
+                    : <CardText>{category}</CardText>}
                     <CardSubtitle
                         className="mb-2 text-muted"
                         tag="h6"
                     >
-                    <strong>Title:</strong> {title}
+                    <strong>Title:</strong> 
+                    {isEdited ? 
+                        <CardText>{editTitle}</CardText>
+                    : <CardText>{title}</CardText>}
                     </CardSubtitle>
                     <CardText>
-                        <strong>Date Posted:</strong> {date_posted}
+                        <strong>Date Posted:</strong> 
                     </CardText>
                     <CardText>
                     <strong>Posted By:</strong> {postedBy}
                     </CardText>
+                    {isEdited ? 
+                        <CardText>{editDate}</CardText>
+                    : <CardText>{date_posted}</CardText>}
                     <CardText>
-                        <strong>Description:</strong> {description}
+                        <strong>Description:</strong> 
+                        {isEdited ? 
+                        <CardText>{editDescription}</CardText>
+                    : <CardText>{description}</CardText>}
                     </CardText>
                     <button  className="claim-item-button" onClick={claimItem}>Claim item</button><br/>
-                    <button className="claim-item-button" onClick={deleteItem}>Delete Post</button>
+                    <button className="claim-item-button" onClick={deleteItem}>Delete Post</button><br/>
+                    <Button className="edit-post-button" onClick={handleShow}>EDIT</Button>
+                    {show && <EditPostModal closeModal={handleClose}/>}
                     </CardBody>
             </Card>
             </CardColumns>

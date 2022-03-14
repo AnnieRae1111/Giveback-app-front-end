@@ -3,7 +3,8 @@ import '../css/AvailableItems.css'
 import AvailableItemsCard from './AvailableItemsCard';
 import {Row } from 'reactstrap'
 
-const AvailableItemsList = ({items, setItems}) => {
+
+const AvailableItemsList = ({items, setItems,isEdited, setIsEdited, editCategory,editTitle, editDate, editDescription,editOwner, editPhotoUrl }) => {
     console.log(items)
     return (  
         <div className="available-items-container">
@@ -18,13 +19,21 @@ const AvailableItemsList = ({items, setItems}) => {
                      title={item.title}
                      datePosted={item.date_posted}
                      postedBy={item.owner}
-                     images={item.images[0]}
+                     images={item.images[0]} 
                      description={item.description}
                      photoUrl={item.photoUrl}
-                     items={item}
+                     item={item}
                      setItems={setItems}
                      itemId={item._id}
-                     allItems={items}
+                     items={items}
+                     isEdited={isEdited}
+                     setIsEdited={setIsEdited}
+                     editCategory={editCategory}
+                     editTitle={editTitle}
+                     editDate={editDate}
+                     editDescription={editDescription}
+                     editOwner={editOwner}
+                     editPhotoUrl={editPhotoUrl}
                      />
                  )
              })

@@ -42,17 +42,6 @@ const UploadItemForm = ({photoUrl, setPhotoUrl,imageUrl, setImageUrl, itemCatego
 
         }
 
-        // const DeleteItem = (event) => {
-        //     let deleteUrl = `http://localhost:8000/api/items/${event._id}`
-        //     console.log(deleteUrl)
-        //     axios.delete(deleteUrl, event._id)
-        //     console.log(event._id)
-        //     .then(setItems(
-        //         items.filter((deletedItem)=> deletedItem.event._id !== event._id )
-        //     ))
-
-        // }
-
         const onFormSubmit = (event)=> {
             event.preventDefault()
         }
@@ -133,7 +122,7 @@ const UploadItemForm = ({photoUrl, setPhotoUrl,imageUrl, setImageUrl, itemCatego
                     <Input
                     id="description"
                     name="description"
-                    placeholder="descriptionr"
+                    placeholder="description"
                     type="text"
                     onChange = {(event)=>{setDescription(event.target.value)}}
                     />
