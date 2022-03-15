@@ -31,9 +31,9 @@ const claimItem = (id) => {
     setItemHistory(itemHistory=>[...itemHistory, itemToClaim])
     // console.log(itemHistory, "item History array")
 
-    // let itemsNotClaimed = items.filter((item)=> item._id !== itemId)
-    // console.log(itemsNotClaimed, "items not claimed")
-    // setItems(itemsNotClaimed)
+    let itemsNotClaimed = items.filter((item)=> item._id !== id)
+    console.log(itemsNotClaimed, "items not claimed")
+    setItems(itemsNotClaimed)
     // console.log(availableItems, "remaining items")
 
 }
@@ -44,6 +44,7 @@ const claimItem = (id) => {
     return (  
         <div className="available-items-container">
             <div className="item-history-container">
+             <h2 className="currently-claimed-items"> Currently Claimed Items</h2>   
            {itemHistory.map((oneItem)=> {
                return (
                    <img className="item-history-images" src={oneItem.photoUrl} alt="history"/>

@@ -16,9 +16,24 @@
 }
 
 /*-------Available Items List ----------*/
+.currently-claimed-items{
+    color:white;
+    font-family: tangerineregular;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.item-history-container{
+    border:4px solid black; 
+    background-color: #A68380;
+    /* display:flex; */
+    align-items: center;
+    justify-content: center;
+}
+
 .item-history-images{
-    height:400px;
-    width:400px;
+    height:200px;
+    width:200px;
     margin:10px;
     border: 4px solid #8EA66A;
     border-radius: 10px;
