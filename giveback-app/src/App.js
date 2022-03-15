@@ -64,13 +64,14 @@ function App() {
 
   const handleEdit = async (id) => {
     const editedItem = {
-      category:editCategory, 
-      title: editTitle,
+      itemCategory:editCategory, 
+      itemTitle: editTitle,
       photoUrl: editPhotoUrl,
       description:editDescription
     }
     try{
       const response = await axios.put(`http://localhost:8000/api/items/${id}`, editedItem)
+      console.log(response, "put response")
       setItems(items.map(item => item._id === id ? {...response.data }: item))
       setEditTitle('')
       setEditDescription('')
@@ -80,7 +81,6 @@ function App() {
     }
 
   }
-
 
 
   return (

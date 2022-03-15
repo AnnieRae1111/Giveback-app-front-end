@@ -1,6 +1,6 @@
 import '../css/UploadItemForm.css'
 import axios from "axios";
-import { useState } from 'react'
+
 
 import {
     Form,
@@ -32,7 +32,7 @@ const UploadItemForm = ({photoUrl, setPhotoUrl,imageUrl, setImageUrl, itemCatego
             const allItems = [...items, newItem]
             console.log(allItems, "all items")
             const result = await axios.post(itemsUrl, allItems)
-            console.log(result.data)
+            console.log(result.data, "result.data")
             setItems([...items, newItem])
             // setImages([...images, photoUrl])
             // console.log(allItems, "allItems")
