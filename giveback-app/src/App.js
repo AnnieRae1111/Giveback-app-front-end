@@ -2,7 +2,7 @@ import{ useState, useEffect } from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 import Header from './components/Header';
-import {Routes, Route, useHistory } from 'react-router-dom'
+import {Routes, Route } from 'react-router-dom'
 import AvailableItemsList from './components/AvailableItemsList';
 import UploadItemForm from './components/UploadItemForm';
 import LandingPage from './components/LandingPage';
@@ -21,7 +21,7 @@ function App() {
   const[description, setDescription]=useState('')
   const[items, setItems]=useState([])
   const[photoUrl, setPhotoUrl]=useState('')
-  const history = useHistory()
+  
   // const[newItem, setNewItem]=useState({
   //     category:"",
   //     title: "",
@@ -42,8 +42,7 @@ function App() {
   const BASE_URL = "http://localhost:8000/api/items";
   const getItems = () => {
     axios.get(BASE_URL).then((res) => {
-      setItems(res.data);
-      console.log(items, "items");      
+      setItems(res.data);   
     });                            
   };
 
@@ -66,13 +65,12 @@ function App() {
       setItems(items.map(item => item._id === id ? {...response.data }: item))
       setEditTitle('')
       setEditDescription('')
-      history.push('/')
+      //then navigate back home 
     }catch(err){
       console.log(err)
     }
 
   }
-
 
 
   return (
@@ -84,7 +82,7 @@ function App() {
       <Routes>
         <Route path="/" element={<AvailableItemsList  items={items} setItems={setItems} />} />
         
-        <Route path="/donate" elemet={<UploadItemForm/>}/>
+        <Route path="/donate" elemet={<UploadItemForm getItems={getItems}/>}/>
        
         <Route path="/edit/:id" element={<EditPost items={items} handleEdit={handleEdit} editCategory={editCategory} setEditCategory={setEditCategory} editTitle={editTitle} setEditTitle={setEditTitle} editDescription={editDescription} setEditDescription={setEditDescription} editPhotoUrl={editPhotoUrl} setEditPhotoUrl={setEditPhotoUrl}/>}  />
   

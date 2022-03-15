@@ -12,57 +12,13 @@ import {
 }
 from 'reactstrap'
 import axios from 'axios'
-import { useState } from 'react'
 import { Link } from 'react-router-dom'
 
 
 
-const AvailableItemsCard = ({ items, item, setItems, itemId,}) => {
+const AvailableItemsCard = ({claimItem, items, item, itemId,}) => {
 
-    console.log(items, "all items array")
-    // console.log(item, "one item")
-
-    const [claimed, setClaimed]=useState([])
-    const[availableItems, setAvailableItems]=useState([])
-    const[itemHistory, setItemHistory]=useState([])
-    const[isClaimed, setIsClaimed]=useState(false)
-    
-    
-    // const[toggleEdit, setToggleEdit]=useState(false)
-    // const editItem = () => setToggleEdit(!toggleEdit)
-
-    const claimItem = (id) => {
-        let itemToClaim = items.filter((claimed)=> claimed._id === itemId)
-        console.log(itemToClaim, "item that has been claimed")
-        setClaimed(itemToClaim)
-        setItemHistory(...claimed, itemToClaim)
-        console.log(itemHistory, "item History array")
-
-        // let itemsNotClaimed = items.filter((item)=> item._id !== itemId)
-        // console.log(itemsNotClaimed, "items not claimed")
-        // setItems(itemsNotClaimed)
-        // console.log(availableItems, "remaining items")
-
-    }
-
-    console.log(claimed, "claimed items array")
-
-    
-
-    // const BASE_URL = "http://localhost:8000/api/items";
-
-    // const getAllItems = () => {
-    // axios.get(BASE_URL).then((res) => {
-    //     setAvailableItems(res.data);
-    //     console.log(availableItems);      
-    // });                            
-    // };
-
-    // useEffect(() => {
-    // getAllItems();
-    // }, []);
-
-   
+    // console.log(items, "all items array")
 
     const deleteUrl=`http://localhost:8000/api/items/${itemId}`
         const deleteItem = async ( event ) => {
@@ -76,12 +32,11 @@ const AvailableItemsCard = ({ items, item, setItems, itemId,}) => {
             .then(window.location.reload(false))
         }
 
-
     
     return (  
         <div className="available-items-card-container">
                  {/* <Row xs="1" m="2" l="2" xl="2" s="2"> */}
-                 <Row>
+        <Row> 
             <Col > 
         <CardColumns>
             <Card className="available-items-card">
