@@ -28,9 +28,11 @@
 .signin-link,
 .feature-link{
     margin-left:10px;
-    margin-top: 20px;
+    margin-top: 23px;
     margin-right:10px;
     color:white;
+    text-decoration: none;
+    font-family: tangerineregular;
     
     
     

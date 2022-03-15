@@ -7,7 +7,6 @@ import AvailableItemsList from './components/AvailableItemsList';
 import UploadItemForm from './components/UploadItemForm';
 import LandingPage from './components/LandingPage';
 import axios from 'axios';
-import Footer from './components/Footer'
 import EditPost from './components/EditPost';
 
 
@@ -16,8 +15,8 @@ function App() {
   const[itemCategory, setItemCategory]=useState('')
   const[itemTitle, setItemTitle]=useState('')
   const[itemDate, setItemDate]=useState()
-  const[images, setImages]=useState([])
-  const[file, setFile]=useState([]) 
+  // const[images, setImages]=useState([])
+  // const[file, setFile]=useState([]) 
   const[owner, setOwner]=useState('')
   const[description, setDescription]=useState('')
   const[items, setItems]=useState([])
