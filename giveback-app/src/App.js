@@ -2,12 +2,11 @@ import{ useState, useEffect } from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 import Header from './components/Header';
-import {Routes, Route } from 'react-router-dom'
+import {Routes, Route, useHistory } from 'react-router-dom'
 import AvailableItemsList from './components/AvailableItemsList';
 import UploadItemForm from './components/UploadItemForm';
 import LandingPage from './components/LandingPage';
 import axios from 'axios';
-import Footer from './components/Footer'
 import EditPost from './components/EditPost';
 
 
@@ -22,6 +21,7 @@ function App() {
   const[description, setDescription]=useState('')
   const[items, setItems]=useState([])
   const[photoUrl, setPhotoUrl]=useState('')
+  const history = useHistory()
   // const[newItem, setNewItem]=useState({
   //     category:"",
   //     title: "",
@@ -66,7 +66,7 @@ function App() {
       setItems(items.map(item => item._id === id ? {...response.data }: item))
       setEditTitle('')
       setEditDescription('')
-      //then go back to home page 
+      history.push('/')
     }catch(err){
       console.log(err)
     }
