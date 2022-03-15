@@ -20,7 +20,7 @@ import { Link } from 'react-router-dom'
 const AvailableItemsCard = ({ items, item, setItems, itemId,}) => {
 
     console.log(items, "all items array")
-    console.log(item, "one item")
+    // console.log(item, "one item")
 
     const [claimed, setClaimed]=useState([])
     const[availableItems, setAvailableItems]=useState([])
@@ -38,10 +38,10 @@ const AvailableItemsCard = ({ items, item, setItems, itemId,}) => {
         setItemHistory(...claimed, itemToClaim)
         console.log(itemHistory, "item History array")
 
-        let itemsNotClaimed = items.filter((item)=> item._id !== itemId)
-        console.log(itemsNotClaimed, "items not claimed")
-        setItems(itemsNotClaimed)
-        console.log(availableItems, "remaining items")
+        // let itemsNotClaimed = items.filter((item)=> item._id !== itemId)
+        // console.log(itemsNotClaimed, "items not claimed")
+        // setItems(itemsNotClaimed)
+        // console.log(availableItems, "remaining items")
 
     }
 
@@ -111,7 +111,7 @@ const AvailableItemsCard = ({ items, item, setItems, itemId,}) => {
                 <CardText>
                     <strong>Description:</strong> {item.description}
                 </CardText>
-                <button  className="claim-item-button">Claim item</button><br/>
+                <button  className="claim-item-button" onClick={()=>claimItem(item._id)}>Claim item</button><br/>
                 <button className="claim-item-button" onClick={deleteItem}>Delete Post</button>
                 <Link to={`/edit/${item._id}`}><button className="claim-item-button">Edit</button></Link>
                 </CardBody>

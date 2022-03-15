@@ -56,8 +56,8 @@ function App() {
 
   const handleEdit = async (id) => {
     const editedItem = {
-      itemCategory:editCategory, 
-      itemDate: editTitle,
+      category:editCategory, 
+      title: editTitle,
       photoUrl: editPhotoUrl,
       description:editDescription
     }
@@ -73,36 +73,6 @@ function App() {
 
   }
 
-
-// const submitEdits = async (id,event) => {
-//   setItemCategory(editCategory)
-//   setItemTitle(editTitle)
-//   setDescription(editDescription)
-//   setItemDate(editDate)
-//   setPhotoUrl(editPhotoUrl)
-//   console.log(itemCategory, "item category on update")
-//   console.log(itemTitle, "item title onpdate")
-//   console.log(description, 'item descriptoin on update')
-//   const updateUrl=`http://localhost:8000/api/items/${id}`
-//   event.preventDefault()
-//   console.log("submit eidts function")
-//   setIsEdited(true)
-//   await axios({
-//     method: 'PUT',
-//     url: updateUrl,
-//     data:editedItem,
-//   })
-//   .then((res)=>res.json)
-//   .then(res=> console.log(res, "axios put"))
-//   .then((json)=>{
-//     console.log(json)
-//     let modifiedItems = items
-//     modifiedItems[id]=json
-//     setItems(modifiedItems)
-    
-//   })
-  
-// }
 
 
   return (
