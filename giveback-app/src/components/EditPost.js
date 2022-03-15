@@ -28,7 +28,7 @@ const EditPost = ({items, handleEdit, editCategory, setEditCategory, editTitle, 
 
     return ( 
         <div className="upload-form-container">
-            {editTitle && 
+       
             <>
             <Form id="upload-form" onSubmit={(event)=>event.preventDefault()}>
                 <FormGroup>
@@ -102,12 +102,6 @@ const EditPost = ({items, handleEdit, editCategory, setEditCategory, editTitle, 
                 </Button>
             </Form>
             </>
-            } 
-            {!editTitle && 
-            <>
-            <h2> Oops, no post here</h2>
-            <p><Link to="/"> Go back to Homepage</Link></p>
-            </>}
         </div>
      );
 }

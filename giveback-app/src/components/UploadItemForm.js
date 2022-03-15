@@ -26,16 +26,19 @@ const UploadItemForm = ({photoUrl, setPhotoUrl,imageUrl, setImageUrl, itemCatego
     
         const itemsUrl="http://localhost:8000/api/items"
 
-        const addNewItem = (event) => {
+        const addNewItem = async (event) => {
             event.preventDefault()
+            // console.log(newItem, "new Item")
             const allItems = [...items, newItem]
+            console.log(allItems, "all items")
+            const result = await axios.post(itemsUrl, allItems)
+            console.log(result.data)
             setItems([...items, newItem])
-            setImages([...images, photoUrl])
-            console.log(allItems, "allItems")
+            // setImages([...images, photoUrl])
+            // console.log(allItems, "allItems")
             console.log(items, "these are all of the items")
             console.log(photoUrl)
 
-            axios.post(itemsUrl, allItems)
             // .then(getItems())
             console.log(items)
             

@@ -12,40 +12,55 @@ import {
 }
 from 'reactstrap'
 import axios from 'axios'
-import { useState } from 'react'
+
 import { Link } from 'react-router-dom'
 
 
 
-const AvailableItemsCard = ({ items, item, setItems, itemId,}) => {
+const AvailableItemsCard = ({claimItem, items, item, setItems, itemId,}) => {
 
-    console.log(items, "all items array")
-    // console.log(item, "one item")
+    // console.log(items, "all items array")
+   
 
-    const [claimed, setClaimed]=useState([])
-    const[availableItems, setAvailableItems]=useState([])
-    const[itemHistory, setItemHistory]=useState([])
-    const[isClaimed, setIsClaimed]=useState(false)
+    // const [claimed, setClaimed]=useState([])
+    // const[itemHistory, setItemHistory]=useState([])
+   
+    // const[isClaimed, setIsClaimed]=useState(false)
+    // const[availableItems, setAvailableItems]=useState([])
     
+    // // const [claimed, setClaimed]=useState([{
+    // //     category: item.category,
+    // //     title: item.title,
+    // //     photoUrl: item.photoUrl,
+    // //     description: item.description
+    // // }])
+
+    // useEffect(()=> {
+    //     // console.log(itemHistory, "item history in useEffect")
+
+    // },[itemHistory])
     
     // const[toggleEdit, setToggleEdit]=useState(false)
     // const editItem = () => setToggleEdit(!toggleEdit)
 
-    const claimItem = (id) => {
-        let itemToClaim = items.filter((claimed)=> claimed._id === itemId)
-        console.log(itemToClaim, "item that has been claimed")
-        setClaimed(itemToClaim)
-        setItemHistory(...claimed, itemToClaim)
-        console.log(itemHistory, "item History array")
+    // const claimItem = (id) => {
+    //     // let itemToClaim = items.filter((claimed)=> claimed._id === itemId)
+    //     let itemToClaim = items.find(eachItem => eachItem._id === id)
+    //     console.log(itemToClaim, "item that has been claimed")
 
-        // let itemsNotClaimed = items.filter((item)=> item._id !== itemId)
-        // console.log(itemsNotClaimed, "items not claimed")
-        // setItems(itemsNotClaimed)
-        // console.log(availableItems, "remaining items")
+    //     // axios.post()
+    //     // setClaimed(itemToClaim)
+    //     setItemHistory(itemHistory=>[...itemHistory, itemToClaim])
+    //     // console.log(itemHistory, "item History array")
 
-    }
+    //     // let itemsNotClaimed = items.filter((item)=> item._id !== itemId)
+    //     // console.log(itemsNotClaimed, "items not claimed")
+    //     // setItems(itemsNotClaimed)
+    //     // console.log(availableItems, "remaining items")
 
-    console.log(claimed, "claimed items array")
+    // }
+
+    // console.log(claimed, "claimed items array")
 
     
 

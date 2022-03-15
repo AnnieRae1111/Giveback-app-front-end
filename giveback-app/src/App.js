@@ -43,13 +43,21 @@ function App() {
   const getItems = () => {
     axios.get(BASE_URL).then((res) => {
       setItems(res.data);
-      console.log(items, "items");      
+      // console.log(items, "items");      
     });                            
   };
 
   useEffect(() => {
     getItems();
   }, []);
+
+  useEffect(() => {
+    console.log("updated items")
+  }, [items]);
+
+  useEffect(() => {
+    console.log("updated  edit title")
+  }, [editTitle]);
 
   console.log(items, "all items")
 
