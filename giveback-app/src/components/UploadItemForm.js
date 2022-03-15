@@ -10,40 +10,66 @@ import {
     Button
 } from 'reactstrap'
 
-const UploadItemForm = ({photoUrl, setPhotoUrl,imageUrl, setImageUrl, itemCategory, setItemCategory, itemTitle, setItemTitle, itemDate, setItemDate, images, setImages, owner, setOwner,items, setItems, description, setDescription}) => {
+const UploadItemForm = ({getItems,photoUrl, setPhotoUrl,imageUrl, setImageUrl, itemCategory, setItemCategory, itemTitle, setItemTitle, itemDate, setItemDate, images, setImages, owner, setOwner,items, setItems, description, setDescription}) => {
     console.log(items)
     
-        let newItem = {
-            category: itemCategory,
-            title: itemTitle,
-            date_posted: itemDate,
-            owner: owner,
-            description:description,
-            images: images,
-            url:imageUrl,
-            photoUrl:photoUrl
-        }
+        // let newItem = {
+        //     category: itemCategory,
+        //     title: itemTitle,
+        //     date_posted: itemDate,
+        //     owner: owner,
+        //     description:description,
+        //     images: images,
+        //     url:imageUrl,
+        //     photoUrl:photoUrl
+        // }
     
-        const itemsUrl="http://localhost:8000/api/items"
+        // const itemsUrl="http://localhost:8000/api/items"
 
-        const addNewItem = async (event) => {
-            event.preventDefault()
-            // console.log(newItem, "new Item")
-            const allItems = [...items, newItem]
-            console.log(allItems, "all items")
-            const result = await axios.post(itemsUrl, allItems)
-            console.log(result.data, "result.data")
-            setItems([...items, newItem])
-            // setImages([...images, photoUrl])
-            // console.log(allItems, "allItems")
-            console.log(items, "these are all of the items")
-            console.log(photoUrl)
+        // const addNewItem = async (event) => {
+        //     event.preventDefault()
+        //     // console.log(newItem, "new Item")
+        //     const allItems = [...items, newItem]
+        //     console.log(allItems, "all items")
+        //     const result = await axios.post(itemsUrl, allItems)
+        //     console.log(result.data, "result.data")
+        //     setItems([...items, newItem])
+        //     // setImages([...images, photoUrl])
+        //     // console.log(allItems, "allItems")
+        //     console.log(items, "these are all of the items")
+        //     console.log(photoUrl)
 
-            // .then(getItems())
-            console.log(items)
+        //     // .then(getItems())
+        //     console.log(items)
             
 
+        // }
+
+
+        const addNewItem = async (event) =>{
+            event.preventDefault()
+            const itemsUrl="http://localhost:8000/api/items"
+            const newItem= {
+                category: itemCategory,
+                title: itemTitle,
+                date_posted: itemDate,
+                owner: owner,
+                description:description,
+                images: images,
+                url:imageUrl,
+                photoUrl:photoUrl,
+                image:images
+            }
+            try{
+            const response = await axios.post(itemsUrl, newItem)
+            const allItems=[...items, response.data]
+            setItems(allItems)
+            }catch(err){
+                console.log(err)
+            }
         }
+
+
 
         const onFormSubmit = (event)=> {
             event.preventDefault()
