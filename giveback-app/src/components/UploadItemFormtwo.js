@@ -74,6 +74,8 @@ const UploadItemFormTwo = ({imageUrl, setImageUrl, itemCategory, setItemCategory
             // filtering the files that do not equal the file we want to remove 
         }
 
+       
+
 
 
     return (  

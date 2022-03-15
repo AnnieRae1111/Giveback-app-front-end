@@ -10,38 +10,9 @@ import {
     Button
 } from 'reactstrap'
 
-const UploadItemForm = ({getItems,photoUrl, setPhotoUrl,imageUrl, setImageUrl, itemCategory, setItemCategory, itemTitle, setItemTitle, itemDate, setItemDate, images, setImages, owner, setOwner,items, setItems, description, setDescription}) => {
+const UploadItemForm = ({file, setFile, getItems,photoUrl, setPhotoUrl,imageUrl, setImageUrl, itemCategory, setItemCategory, itemTitle, setItemTitle, itemDate, setItemDate, images, setImages, owner, setOwner,items, setItems, description, setDescription}) => {
     console.log(items)
     
-        // let newItem = {
-        //     category: itemCategory,
-        //     title: itemTitle,
-        //     date_posted: itemDate,
-        //     owner: owner,
-        //     description:description,
-        //     images: images,
-        //     url:imageUrl,
-        //     photoUrl:photoUrl
-        // }
-    
-        // const itemsUrl="http://localhost:8000/api/items"
-
-        // const addNewIteOne = (event) => {
-        //     event.preventDefault()
-        //     const allItems = [...items, newItem]
-        //     setItems([...items, newItem])
-        //     setImages([...images, photoUrl])
-        //     console.log(allItems, "allItems")
-        //     console.log(items, "these are all of the items")
-        //     console.log(photoUrl)
-
-        //     axios.post(itemsUrl, allItems)
-        //     // .then(getItems())
-        //     console.log(items)
-            
-
-        // }
-
 
         const addNewItem = async (event) =>{
             event.preventDefault()
@@ -54,18 +25,79 @@ const UploadItemForm = ({getItems,photoUrl, setPhotoUrl,imageUrl, setImageUrl, i
                 description:description,
                 images: images,
                 url:imageUrl,
-                photoUrl:photoUrl
+                photoUrl:photoUrl,
+                image:images
             }
-            const response = await axios.post(itemsUrl, newItem)
+            const response = await axios.post(itemsUrl, newItem,{ headers: {'Content-Type': 'multipart/form-data'}})
             .then(setItems([...items, newItem]))
             .then(getItems())
             console.log(items, "items again ")
             console.log(response.data)
         }
 
+        // const uploadImage = async (file, id) => {
+        //     const formData = new FormData()
+        //     formData.append('file', file)
+        //     return fetch(`http://localhost:8000/api/items/${id}`,{
+        //         headers:{
+        //             Accept: 'application/json'
+        //         },
+        //         method:'post',
+        //         body: formData,
+        //     }).then((response)=>console.log((response.json())))
+            
+        // }
 
-        const onFormSubmit = (event)=> {
+        // async function postImage({image, description}) {
+        //     const formData = new FormData();
+        //     formData.append("file", file)
+        //     const result = await axios.post('http://localhost:8000/api/items', formData, { headers: {'Content-Type': 'multipart/form-data'}})
+        //     return console.log(result.data, "result.data")
+           
+        //   }
+
+
+
+      
+
+        // const uploadImage = async (event)=> {
+        //     event.preventDefault()
+        //     const result = await postImage({image: file})
+        //     setImages([result.image, ...file])
+        //     console.log(images, "images")
+        // }
+
+        const onFormSubmit = async (event) => {
             event.preventDefault()
+            const formData = new FormData()
+            formData.append('file', file)
+            formData.append('images', images)
+            try {
+                const response = await axios({
+                    method:'post',
+                    url:'http://localhost:8000/api/items',
+                    data:formData,
+                    headers: {
+                        "Content-Type": "multipart/form-data"
+                    }
+                })
+                console.log(response, "response")
+            }catch(err){
+                console.log(err)
+            }
+        }
+
+
+
+        const displayImage = (event)=> {
+            let file = event.target.files[0]
+            setFile(file)
+            console.log(file)
+            setImageUrl(URL.createObjectURL(file))
+            setImages(file)
+            console.log(imageUrl)
+            console.log(file, "this is the file")
+            console.log(images, 'Images in state')
         }
 
         
@@ -160,14 +192,26 @@ const UploadItemForm = ({getItems,photoUrl, setPhotoUrl,imageUrl, setImageUrl, i
                     onChange = {(event)=>{setPhotoUrl(event.target.value)}}
                     />
                 </FormGroup>
-                <Button type="submit" id="submit-button">
+                <FormGroup>
+                    <Label for="exampleFile">
+                    File
+                    </Label>
+                    <Input
+                    id="exampleFile"
+                    name="file"
+                    type="file"
+                    accept="image/*"
+                    onChange={displayImage}
+                    />
+                </FormGroup>
+                <Button type="submit" id="submit-button" >
                     Upload Image
                 </Button><br/>
                 <Button type="submit" onClick={addNewItem} id="submit-button">
                     Add New Item
                 </Button>
-                
             </Form>
+            <img className="preview-image" src={imageUrl} alt=""/>
             </div>
                 );
             }

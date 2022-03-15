@@ -24,11 +24,13 @@
 }
 
 .item-history-container{
-    border:4px solid black; 
+    border:4px solid #F2D0D0; 
     background-color: #A68380;
+    height:350px;
     /* display:flex; */
     align-items: center;
     justify-content: center;
+    margin-bottom: 30px;
 }
 
 .item-history-images{

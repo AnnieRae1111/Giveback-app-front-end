@@ -12,6 +12,15 @@
 
 }
 
+@font-face {
+    font-family: 'gallery_modernregular';
+    src: url('/src/fonts/gallerymodern-webfont.woff2') format('woff2'),
+         url('/src/fonts/gallerymodern-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
 .landing-page-container{
     height: 700px;
     background-color:#8EA66A ;

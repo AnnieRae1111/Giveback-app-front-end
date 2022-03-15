@@ -8,6 +8,7 @@ import UploadItemForm from './components/UploadItemForm';
 import LandingPage from './components/LandingPage';
 import axios from 'axios';
 import EditPost from './components/EditPost';
+import Bottom from './components/Bottom';
 
 
 function App() {
@@ -15,8 +16,7 @@ function App() {
   const[itemCategory, setItemCategory]=useState('')
   const[itemTitle, setItemTitle]=useState('')
   const[itemDate, setItemDate]=useState()
-  const[images, setImages]=useState([])
-  const[file, setFile]=useState([]) 
+  const[file, setFile]=useState([])
   const[owner, setOwner]=useState('')
   const[description, setDescription]=useState('')
   const[items, setItems]=useState([])
@@ -74,22 +74,23 @@ function App() {
 
 
   return (
+    <>
     <div className="app-container">
       <Header/>
       {/* <Home/> */}
       <LandingPage/>
-      <UploadItemForm getItems={getItems} photoUrl={photoUrl} setPhotoUrl={setPhotoUrl} imageUrl={imageUrl} setImageUrl={setImageUrl} itemCategory={itemCategory} setItemCategory={setItemCategory} itemTitle={itemTitle} setItemTitle={setItemTitle} itemDate={itemDate} setItemDate={setItemDate} owner={owner} setOwner={setOwner} items={items} setItems={setItems} description={description} setDescription={setDescription} />
+      <UploadItemForm getItems={getItems} photoUrl={photoUrl} setPhotoUrl={setPhotoUrl} imageUrl={imageUrl} setImageUrl={setImageUrl} itemCategory={itemCategory} setItemCategory={setItemCategory} itemTitle={itemTitle} setItemTitle={setItemTitle} itemDate={itemDate} setItemDate={setItemDate} owner={owner} setOwner={setOwner} items={items} setItems={setItems} description={description} setDescription={setDescription} file={file} setFile={setFile} />
       <Routes>
         <Route path="/" element={<AvailableItemsList  items={items} setItems={setItems} />} />
         
-        <Route path="/donate" elemet={<UploadItemForm getItems={getItems}/>}/>
+        {/* <Route path="/donate" element={<UploadItemForm/>}/> */}
        
         <Route path="/edit/:id" element={<EditPost items={items} handleEdit={handleEdit} editCategory={editCategory} setEditCategory={setEditCategory} editTitle={editTitle} setEditTitle={setEditTitle} editDescription={editDescription} setEditDescription={setEditDescription} editPhotoUrl={editPhotoUrl} setEditPhotoUrl={setEditPhotoUrl}/>}  />
   
-      </Routes>
-    
-   
+    </Routes>
     </div>
+     <Bottom/>
+     </>
   );
 }
 

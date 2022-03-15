@@ -44,7 +44,7 @@ const claimItem = (id) => {
     return (  
         <div className="available-items-container">
             <div className="item-history-container">
-             <h2 className="currently-claimed-items"> Currently Claimed Items</h2>   
+             <h2 className="currently-claimed-items"> Currently Claimed Items:</h2>   
            {itemHistory.map((oneItem)=> {
                return (
                    <img className="item-history-images" src={oneItem.photoUrl} alt="history"/>
