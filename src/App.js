@@ -8,6 +8,8 @@ import UploadItemForm from './components/UploadItemForm';
 import LandingPage from './components/LandingPage';
 import axios from 'axios';
 import EditPost from './components/EditPost';
+import Home from './Home';
+import About from './components/About';
 
 
 function App() {
@@ -86,12 +88,15 @@ function App() {
     <div className="app-container">
       <Header/>
       {/* <Home/> */}
-      <LandingPage/>
-      <UploadItemForm getItems={getItems} photoUrl={photoUrl} setPhotoUrl={setPhotoUrl} imageUrl={imageUrl} setImageUrl={setImageUrl} itemCategory={itemCategory} setItemCategory={setItemCategory} itemTitle={itemTitle} setItemTitle={setItemTitle} itemDate={itemDate} setItemDate={setItemDate} owner={owner} setOwner={setOwner} items={items} setItems={setItems} description={description} setDescription={setDescription} />
+      {/* <UploadItemForm getItems={getItems} photoUrl={photoUrl} setPhotoUrl={setPhotoUrl} imageUrl={imageUrl} setImageUrl={setImageUrl} itemCategory={itemCategory} setItemCategory={setItemCategory} itemTitle={itemTitle} setItemTitle={setItemTitle} itemDate={itemDate} setItemDate={setItemDate} owner={owner} setOwner={setOwner} items={items} setItems={setItems} description={description} setDescription={setDescription} /> */}
       <Routes>
-        <Route path="/" element={<AvailableItemsList  items={items} setItems={setItems} />} />
+        <Route path="/" element={<Home/>}/>
+        <Route path="/landing-page" element={<LandingPage/>}/>
+        <Route path="about" element={<About/>}/>
+       <Route path="/donate" element={<UploadItemForm getItems={getItems} photoUrl={photoUrl} setPhotoUrl={setPhotoUrl} imageUrl={imageUrl} setImageUrl={setImageUrl} itemCategory={itemCategory} setItemCategory={setItemCategory} itemTitle={itemTitle} setItemTitle={setItemTitle} itemDate={itemDate} setItemDate={setItemDate} owner={owner} setOwner={setOwner} items={items} setItems={setItems} description={description} setDescription={setDescription} /> } />
+        <Route path="/available-items" element={<AvailableItemsList  items={items} setItems={setItems} />} />
         
-        <Route path="/donate" elemet={<UploadItemForm/>}/>
+        {/* <Route path="/donate" element={<UploadItemForm/>}/> */}
        
         <Route path="/edit/:id" element={<EditPost items={items} handleEdit={handleEdit} editCategory={editCategory} setEditCategory={setEditCategory} editTitle={editTitle} setEditTitle={setEditTitle} editDescription={editDescription} setEditDescription={setEditDescription} editPhotoUrl={editPhotoUrl} setEditPhotoUrl={setEditPhotoUrl}/>}  />
   

@@ -127,7 +127,7 @@ const AvailableItemsCard = ({claimItem, items, item, setItems, itemId,}) => {
                     <strong>Description:</strong> {item.description}
                 </CardText>
                 <button  className="claim-item-button" onClick={()=>claimItem(item._id)}>Claim item</button><br/>
-                <button className="claim-item-button" onClick={deleteItem}>Delete Post</button>
+                <button className="claim-item-button" onClick={deleteItem}>Delete Post</button><br/>
                 <Link to={`/edit/${item._id}`}><button className="claim-item-button">Edit</button></Link>
                 </CardBody>
         </Card>

@@ -3,6 +3,8 @@ import '../css/AvailableItems.css'
 import AvailableItemsCard from './AvailableItemsCard';
 import {Row } from 'reactstrap'
 import { useState, useEffect } from 'react'
+import LandingPage from './LandingPage';
+import UploadItemForm from './UploadItemForm';
 
 
 const AvailableItemsList = ({items, setItems}) => {
@@ -43,6 +45,9 @@ const claimItem = (id) => {
 
 
     return (  
+        <>
+        <LandingPage/>
+        <UploadItemForm/>
         <div className="available-items-container">
             <div className="item-history-container">
              <h2 className="currently-claimed-items"> Currently Claimed Items:</h2>   
@@ -71,6 +76,7 @@ const claimItem = (id) => {
             }
             </Row>
         </div>
+        </>
     );
 }
 

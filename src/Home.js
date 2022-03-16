@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { InputGroup, InputGroupText, Input, Button, Collapse} from 'reactstrap'
 // import '../css/home.css'
 import axios from "axios";
+import './css/Home.css'
 
 const Home = () => {
     let newUser = {
@@ -77,7 +78,7 @@ const Home = () => {
             Login 
             </Button>
             <Collapse isOpen= { toggleLogin }>
-            <h4>{ accountText }</h4>
+            <h4 className="account-text">{ accountText }</h4>
             <InputGroup className="login-input">
                 <InputGroupText >Username</InputGroupText>
                 <Input className="login-input" id="email" onChange={handleChange} value={user.email} placeholder="email" />
@@ -94,7 +95,7 @@ const Home = () => {
             Create Account
             </Button>
             <Collapse isOpen= { toggleCreate }>
-            <h4>{ accountText }</h4>
+            <h4 className="account-text">{ accountText }</h4>
             <InputGroup className="login-input">
                 <InputGroupText >Username</InputGroupText>
                 <Input className="login-input" id="email" onChange={handleChange} value={user.email} placeholder="email" />
