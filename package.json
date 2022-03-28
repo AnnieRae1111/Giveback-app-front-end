@@ -30,6 +30,9 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
+ "alias": {
+    "react": "path.resolve('./node_modules/react')"
+  },
   "eslintConfig": {
     "extends": [
       "react-app",

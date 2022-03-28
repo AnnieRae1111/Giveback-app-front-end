@@ -39,7 +39,7 @@ const Home = () => {
     const loginURL = 'http://localhost:8000/api/users/signin'
     const createAccount = async (event) => {
         event.preventDefault()
-        setAccountText('Account setup Login to  create your fist trip!')
+        setAccountText('Account setup Login to claim or post items!')
         try {
             await axios({
             method: 'post',

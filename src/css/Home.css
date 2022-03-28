@@ -103,7 +103,7 @@
 
 @media only screen and (max-width: 500px){
     .login-welcome{
-       width:350px;
+        width:350px;
         align-items: center;
         justify-content: center;
     }
