@@ -3,6 +3,7 @@
     import './App.css';
     import Header from './components/Header';
     import {Routes, Route } from 'react-router-dom'
+    import RequireAuth from './components/authentication/requireAuth';
     import AvailableItemsList from './components/AvailableItemsList';
     import UploadItemForm from './components/UploadItemForm';
     import LandingPage from './components/LandingPage';
@@ -13,6 +14,7 @@
     import SignUp from './components/authentication/Signup';
     import Main from './Main';
     import SignIn from './components/authentication/SignIn';
+    import Layout from './components/Layout';
 
 
     function App() {
@@ -90,12 +92,22 @@
           <div className="app-container">
           <Header/>
           <Routes>
-            <Route path="/" element={<Main items={items} setItems={setItems}/>}/>
+            <Route path="/" element={<Layout/>}>
+
+           {/* PUBLIC ROUTES */}
             <Route path="/signup" element={<SignUp/>}/>
             <Route path="/signin" element={<SignIn/>}/>
-            <Route path="/about" element={<About/>}/>
-            <Route path="/donate" element={ <UploadItemForm getItems={getItems} photoUrl={photoUrl} setPhotoUrl={setPhotoUrl} imageUrl={imageUrl} setImageUrl={setImageUrl} itemCategory={itemCategory} setItemCategory={setItemCategory} itemTitle={itemTitle} setItemTitle={setItemTitle} itemDate={itemDate} setItemDate={setItemDate} owner={owner} setOwner={setOwner} items={items} setItems={setItems} description={description} setDescription={setDescription} />}/>
-            <Route path="/edit/:id" element={<EditPost items={items} handleEdit={handleEdit} editCategory={editCategory} setEditCategory={setEditCategory} editTitle={editTitle} setEditTitle={setEditTitle} editDescription={editDescription} setEditDescription={setEditDescription} editPhotoUrl={editPhotoUrl} setEditPhotoUrl={setEditPhotoUrl}/>}  />
+            {/* <Route path="/unathorized" element={<Unathorized/>}/> */}
+
+            {/* PRIVATE ROUTES */}
+              <Route element={<RequireAuth/>}>
+                {/* protecting other routes by nesting them in this route with RequireAuth */}
+                <Route path="/about" element={<About/>}/>
+                <Route path="/" element={<Main items={items} setItems={setItems}/>}/>
+                <Route path="/donate" element={ <UploadItemForm getItems={getItems} photoUrl={photoUrl} setPhotoUrl={setPhotoUrl} imageUrl={imageUrl} setImageUrl={setImageUrl} itemCategory={itemCategory} setItemCategory={setItemCategory} itemTitle={itemTitle} setItemTitle={setItemTitle} itemDate={itemDate} setItemDate={setItemDate} owner={owner} setOwner={setOwner} items={items} setItems={setItems} description={description} setDescription={setDescription} />}/>
+                <Route path="/edit/:id" element={<EditPost items={items} handleEdit={handleEdit} editCategory={editCategory} setEditCategory={setEditCategory} editTitle={editTitle} setEditTitle={setEditTitle} editDescription={editDescription} setEditDescription={setEditDescription} editPhotoUrl={editPhotoUrl} setEditPhotoUrl={setEditPhotoUrl}/>}  />
+              </Route>
+            </Route>
           </Routes>
         </div>
         );

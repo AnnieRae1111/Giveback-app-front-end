@@ -1,11 +1,13 @@
-import { useRef, useState, useEffect, useContext } from 'react'
+import { useRef, useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
-import AuthContext from '../../context/AuthProvider'
+import useAuth from '../hooks/useAuth'
 //created globalstate with AuthContext 
 
 const SignIn = () => {
-    const { setAuth } = useContext(AuthContext)
+    // const { setAuth } = useContext(AuthContext)
+    const { setAuth } = useAuth()
+    //using custom hook instead of useContext(AuthContext)
 
     const userRef = useRef()
     const errRef = useRef()
