@@ -76,7 +76,8 @@ useEffect(()=>{
 const handleSubmit = async (e) => {
     e.preventDefault()
     const localUrl = `http://localhost:8000/api/users/signup`
-    const signUpUrl ='https://desolate-reaches-56728.herokuapp.com/api/users/signup'
+    // const signUpUrl ='https://desolate-reaches-56728.herokuapp.com/api/users/signup'
+    const signUpUrl='https://desolate-reaches-56728.herokuapp.com/api/users/signup'
     //if signup button enabled with hacker 
     // const v1=USER_REGEX.test(user)
     // const v2=PWD_REGEX.test(pwd)
@@ -91,7 +92,7 @@ const handleSubmit = async (e) => {
         password: pwd
     }
     try{
-        const response = await axios.post(localUrl, newUser, 
+        const response = await axios.post(signUpUrl, newUser, 
             {
             headers: {'Content-Type':'application/json'}
             // withCredentials: true
@@ -110,8 +111,9 @@ const handleSubmit = async (e) => {
 }
     return(
         <>
+     
         {success ? (
-            <section>
+            <section className='signup-section'>
                 <h1> Sign Up Successful!</h1>
                 <p>
                     <Link to="/signin">Sign In</Link>
@@ -198,16 +200,17 @@ const handleSubmit = async (e) => {
                     <FontAwesomeIcon icon={faInfoCircle}/>
                     Passwords must match
                 </p>
-                <button disabled={!validName || !validPwd || !validMatch ? true : false}>Sign Up</button>
+                <button className="signup-button" disabled={!validName || !validPwd || !validMatch ? true : false}>Sign Up</button>
             </form>
-            <p>
+            <p className="already-signedup">
                 Already signed up? <br/>
                 <span className="line">
-                    <Link to="/signin">Sign In</Link>
+                    <Link className="signup-link-two" to="/signin">Sign In</Link>
                 </span>
             </p>
         </section>
-          )}
+        )}
+       
         </>
     );
 }
