@@ -1,5 +1,5 @@
 import { useRef, useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate, useLocation } from 'react-router-dom'
 import axios from 'axios'
 import useAuth from '../hooks/useAuth'
 //created globalstate with AuthContext 
@@ -8,6 +8,10 @@ const SignIn = () => {
     // const { setAuth } = useContext(AuthContext)
     const { setAuth } = useAuth()
     //using custom hook instead of useContext(AuthContext)
+
+    const navigate = useNavigate()
+    const location = useLocation()
+    const from = location.state?.from?.pathname || "/"
 
     const userRef = useRef()
     const errRef = useRef()
@@ -43,6 +47,8 @@ const SignIn = () => {
         setUser('')
         setPwd('')
         setSuccess(true)
+        navigate(from, {replace: true})
+        // this replaces success page
 
         }catch(err){
             if(!err.response){
@@ -107,7 +113,7 @@ const SignIn = () => {
 
         </p>
        </section>
-        )}
+        )} 
        </>
      );
 }
