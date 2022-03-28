@@ -2,11 +2,6 @@
     display:none;
 }
 
-/* .signup-section{ */
-    /* display:flex; */
-    /* align-items: center;
-    justify-content: center;
-} */
 
 form{
     display:flex;
@@ -14,16 +9,7 @@ form{
     flex-direction: column;
     padding:2rem;
 
-    
-  
 }
-
-/* .form-container{
-    display:flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-} */
 
 input{
     border:3px solid #BAD9C8;
@@ -63,6 +49,17 @@ section {
 }
 
 a.signup-link-two{
+    text-decoration: none;
+    background-color :#BAD9C8;
+    padding:.8rem;
+    color:black;
+    border: 4px solid black;
+    text-decoration: none;
+    font-family: tangerineregular;
+    border-radius: 20px;
+}
+
+a.signintwo-link{
     text-decoration: none;
     background-color :#BAD9C8;
     padding:.8rem;

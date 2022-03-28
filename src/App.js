@@ -12,6 +12,7 @@
     import About from './components/About';
     import SignUp from './components/authentication/Signup';
     import Main from './Main';
+    import SignIn from './components/authentication/SignIn';
 
 
     function App() {
@@ -88,25 +89,14 @@
         return (
           <div className="app-container">
           <Header/>
-          {/* <Home/> */}
-          {/* <LandingPage/> */}
-          {/* <UploadItemForm getItems={getItems} photoUrl={photoUrl} setPhotoUrl={setPhotoUrl} imageUrl={imageUrl} setImageUrl={setImageUrl} itemCategory={itemCategory} setItemCategory={setItemCategory} itemTitle={itemTitle} setItemTitle={setItemTitle} itemDate={itemDate} setItemDate={setItemDate} owner={owner} setOwner={setOwner} items={items} setItems={setItems} description={description} setDescription={setDescription} /> */}
           <Routes>
             <Route path="/" element={<Main items={items} setItems={setItems}/>}/>
             <Route path="/signup" element={<SignUp/>}/>
-            {/* <Route path="/signin" element={<SignIn/>}/> */}
+            <Route path="/signin" element={<SignIn/>}/>
             <Route path="/about" element={<About/>}/>
             <Route path="/donate" element={ <UploadItemForm getItems={getItems} photoUrl={photoUrl} setPhotoUrl={setPhotoUrl} imageUrl={imageUrl} setImageUrl={setImageUrl} itemCategory={itemCategory} setItemCategory={setItemCategory} itemTitle={itemTitle} setItemTitle={setItemTitle} itemDate={itemDate} setItemDate={setItemDate} owner={owner} setOwner={setOwner} items={items} setItems={setItems} description={description} setDescription={setDescription} />}/>
-
-            {/* <Route path="/" element={<AvailableItemsList  items={items} setItems={setItems} />} /> */}
-          
-            {/* <Route path="/donate" element={<UploadItemForm/>}/> */}
-          
             <Route path="/edit/:id" element={<EditPost items={items} handleEdit={handleEdit} editCategory={editCategory} setEditCategory={setEditCategory} editTitle={editTitle} setEditTitle={setEditTitle} editDescription={editDescription} setEditDescription={setEditDescription} editPhotoUrl={editPhotoUrl} setEditPhotoUrl={setEditPhotoUrl}/>}  />
-      
           </Routes>
-        
-      
         </div>
         );
     }

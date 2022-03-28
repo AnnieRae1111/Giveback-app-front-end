@@ -116,7 +116,7 @@ const handleSubmit = async (e) => {
             <section className='signup-section'>
                 <h1> Sign Up Successful!</h1>
                 <p>
-                    <Link to="/signin">Sign In</Link>
+                    <Link className="signintwo-link" to="/signin">Sign In</Link>
                 </p>
             </section>
         ) : (
