@@ -1,14 +1,13 @@
-import { Outlet } from "react-router-dom";
+    import { Outlet } from "react-router-dom";
 
-//this component allows us to wrap routes and apply protected routes 
+    //this component allows us to wrap routes and apply protected routes
 
-const Layout = () => {
-    return ( 
+    const Layout = () => {
+    return (
         <div className="app-container">
-            <Outlet/>
-
+        <Outlet />
         </div>
-      );
-}
- 
-export default Layout;
+    );
+    };
+
+    export default Layout;

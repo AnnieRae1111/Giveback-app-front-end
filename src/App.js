@@ -88,6 +88,17 @@
 
       }
 
+      const deleteItem = async (id) => {
+        const deleteUrl = `https://desolate-reaches-56728.herokuapp.com/api/items/${id}`;
+        try {
+            await axios.delete(deleteUrl)
+            const itemsList = items.filter(post => post._id !== id)
+            setItems(itemsList)
+        }catch(err){
+          console.log(err)
+        }
+      }
+
         return (
           <div className="app-container">
           <Header/>
@@ -103,7 +114,7 @@
               <Route element={<RequireAuth/>}>
                 {/* protecting other routes by nesting them in this route with RequireAuth */}
                 <Route path="/about" element={<About/>}/>
-                <Route path="/" element={<Main items={items} setItems={setItems}/>}/>
+                <Route path="/" element={<Main deleteItem={deleteItem} items={items} setItems={setItems}/>}/>
                 <Route path="/donate" element={ <UploadItemForm getItems={getItems} photoUrl={photoUrl} setPhotoUrl={setPhotoUrl} imageUrl={imageUrl} setImageUrl={setImageUrl} itemCategory={itemCategory} setItemCategory={setItemCategory} itemTitle={itemTitle} setItemTitle={setItemTitle} itemDate={itemDate} setItemDate={setItemDate} owner={owner} setOwner={setOwner} items={items} setItems={setItems} description={description} setDescription={setDescription} />}/>
                 <Route path="/edit/:id" element={<EditPost items={items} handleEdit={handleEdit} editCategory={editCategory} setEditCategory={setEditCategory} editTitle={editTitle} setEditTitle={setEditTitle} editDescription={editDescription} setEditDescription={setEditDescription} editPhotoUrl={editPhotoUrl} setEditPhotoUrl={setEditPhotoUrl}/>}  />
               </Route>

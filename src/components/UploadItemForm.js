@@ -25,14 +25,22 @@ const UploadItemForm = ({photoUrl, setPhotoUrl,imageUrl, setImageUrl, itemCatego
             photoUrl:photoUrl
         }
     
-        const itemsUrl="https://desolate-reaches-56728.herokuapp.com/api/items"
+        
 
         const addNewItem = async (event) => {
+            const itemsUrl="https://desolate-reaches-56728.herokuapp.com/api/items"
             event.preventDefault()
             // console.log(newItem, "new Item")
             const allItems = [...items, newItem]
             console.log(allItems, "all items")
             const result = await axios.post(itemsUrl, allItems)
+            .then((setItemTitle('')))
+            setItemCategory('')
+            setItemTitle('')
+            setItemDate('')
+            setOwner('')
+            setDescription('')
+            setPhotoUrl('')
             console.log(result.data, "result.data")
             setItems([...items, newItem])
             // setImages([...images, photoUrl])
@@ -42,6 +50,7 @@ const UploadItemForm = ({photoUrl, setPhotoUrl,imageUrl, setImageUrl, itemCatego
 
             // .then(getItems())
             console.log(items)
+           
             
 
         }
@@ -55,7 +64,7 @@ const UploadItemForm = ({photoUrl, setPhotoUrl,imageUrl, setImageUrl, itemCatego
         <div className="upload-form-container">
             <h1 className="donate-your-stuff">Donate Your Stuff</h1>
             <h4 className="fill-out-form"> Fill out the form below to post your items</h4>
-            <Form id="upload-form" onSubmit={onFormSubmit}>
+            <Form id="upload-form" onSubmit={addNewItem}>
                 <FormGroup>
                     <Label for="categories">
                     Category:
@@ -143,7 +152,7 @@ const UploadItemForm = ({photoUrl, setPhotoUrl,imageUrl, setImageUrl, itemCatego
                     />
                 </FormGroup>
                 <div className="add-button-container">
-                <Button type="submit" onClick={addNewItem} id="submit-button">
+                <Button type="submit" id="submit-button">
                     Add New Item
                 </Button>
                 </div>
