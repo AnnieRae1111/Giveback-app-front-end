@@ -136,26 +136,24 @@ const handleSubmit = async (e) => {
                     </span>
                 </label>
                 <input
-                type="text"
-                id="username"
-                //this needs to to be the same as htmlFor 
-                ref={userRef}
-                autoComplete="off"
-                onChange={(e)=> setUser(e.target.value)}
-                aria-invalid={validName ? "false": "true"}
-                //for accessability
-                aria-describedby="uidnote"
-                onFocus={()=>setUserFocus(true)}
-                onBlur={()=> setUserFocus(false)}
-                //when you lave username field , set focus to false 
+                   type="text"
+                   id="username"
+                   ref={userRef}
+                   autoComplete="off"
+                   onChange={(e) => setUser(e.target.value)}
+                   value={user}
+                   required
+                   aria-invalid={validName ? "false" : "true"}
+                   aria-describedby="uidnote"
+                   onFocus={() => setUserFocus(true)}
+                   onBlur={() => setUserFocus(false)} 
                 />
-                <p id="uidnote" className={userFocus && user && !validName ? "instructions" : "offscreen"}> 
-                {/* setting to offscreen allows the screen reader to still work  */}
-                    <FontAwesomeIcon icon={faInfoCircle}/>
-                    4 to 24 characters. <br/>
-                    Must begin with a letter.<br/>
-                    Letters, numbers, underscores, hyphens allowed
-                </p>
+                <p id="uidnote" className={userFocus && user && !validName ? "instructions" : "offscreen"}>
+                            <FontAwesomeIcon icon={faInfoCircle} />
+                            4 to 24 characters.<br />
+                            Must begin with a letter.<br />
+                            Letters, numbers, underscores, hyphens allowed.
+                        </p>
 
                 <label htmlFor="password">
                     Password:
@@ -170,6 +168,8 @@ const handleSubmit = async (e) => {
                 type="password"
                 id="passsword"
                 onChange={(e)=> setPwd(e.target.value)}
+                value={pwd}
+                required
                 onFocus={()=>setPwdFocus(true)}
                 onBlur={()=>setPwdFocus(false)}
                 />
@@ -210,7 +210,6 @@ const handleSubmit = async (e) => {
             </p>
         </section>
         )}
-       
         </>
     );
 }

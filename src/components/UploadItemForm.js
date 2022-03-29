@@ -142,9 +142,11 @@ const UploadItemForm = ({photoUrl, setPhotoUrl,imageUrl, setImageUrl, itemCatego
                     onChange = {(event)=>{setPhotoUrl(event.target.value)}}
                     />
                 </FormGroup>
+                <div className="add-button-container">
                 <Button type="submit" onClick={addNewItem} id="submit-button">
                     Add New Item
                 </Button>
+                </div>
                 
             </Form>
             </div>

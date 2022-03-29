@@ -3,7 +3,7 @@
     import './App.css';
     import Header from './components/Header';
     import {Routes, Route } from 'react-router-dom'
-    import RequireAuth from './components/authentication/requireAuth';
+    import RequireAuth from './components/authentication/RequireAuth';
     import AvailableItemsList from './components/AvailableItemsList';
     import UploadItemForm from './components/UploadItemForm';
     import LandingPage from './components/LandingPage';
@@ -109,7 +109,6 @@
               </Route>
 
             </Route>
-            <Route path="/" element={<Main/>}/>
           </Routes>
         </div>
         );
