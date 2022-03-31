@@ -48,7 +48,7 @@
             {items.map((item) => {
                 return (
                 <AvailableItemsCard
-                    key={item.id}
+                    key={item._id}
                     item={item}
                     setItems={setItems}
                     itemId={item._id}
