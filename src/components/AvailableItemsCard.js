@@ -9,15 +9,11 @@
     CardText,
     Row,
     } from "reactstrap";
-    import axios from "axios";
 
     import { Link } from "react-router-dom";
 
-    const AvailableItemsCard = ({ deleteItem, claimItem, item, itemId }) => {
+    const AvailableItemsCard = ({ deleteItem, claimItem, item }) => {
     
-      
-
-
     return (
         <div className="available-items-card-container">
         <Row>

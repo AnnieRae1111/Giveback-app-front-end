@@ -1,5 +1,5 @@
-    import "../css/LandingPage.css";
-    import { Bounce, Slide, Zoom } from "react-awesome-reveal";
+    import '../css/LandingPage.css';
+    import { Bounce, Slide, Zoom } from 'react-awesome-reveal';
 
     const LandingPage = () => {
     return (
@@ -17,7 +17,7 @@
             </Zoom>
             <Slide>
             <h3 className="good-karma-tagline">
-                {" "}
+                {' '}
                 Give your gently loved items to those in need...
             </h3>
             </Slide>
