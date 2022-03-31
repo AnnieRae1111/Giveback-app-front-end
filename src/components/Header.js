@@ -1,11 +1,12 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import "../css/Header.css";
-const Header = () => {
-return (
-    <div className="header-container">
-    <p className="good-karma-logo">GoodKarma</p>
-    <Link className="signup-link" to="/signup">
+    import React from "react";
+    import { Link } from "react-router-dom";
+    import "../css/Header.css";
+    
+    const Header = () => {
+    return (
+        <div className="header-container">
+        <p className="good-karma-logo">GoodKarma</p>
+        <Link className="signup-link" to="/signup">
         Sign Up
     </Link>
     <Link className="signin-link" to="/signin">
@@ -24,3 +25,5 @@ return (
     </div>
 );
 };
+
+export default Header
