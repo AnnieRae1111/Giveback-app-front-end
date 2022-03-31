@@ -17,7 +17,7 @@
             </Zoom>
             <Slide>
             <h3 className="good-karma-tagline">
-                {' '}
+                
                 Give your gently loved items to those in need...
             </h3>
             </Slide>
