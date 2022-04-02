@@ -47,4 +47,13 @@ WireFrame for App:
 ![alt text](https://i.imgur.com/JiFUUPt.png)
 ![alt text](https://i.imgur.com/Ezz13lk.png)
 
+Screen shots of the app: 
+![alt text](https://i.imgur.com/hhjArp0.png)
+![alt text](https://i.imgur.com/cHeQCnD.png)
+![alt text](https://i.imgur.com/jjlXfHe.png)
+![alt text](https://i.imgur.com/ICTfdcy.png)
+![alt text](https://i.imgur.com/lVcquEb.png)
+
+
+
 
