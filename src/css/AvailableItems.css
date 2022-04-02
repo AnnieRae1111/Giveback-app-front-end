@@ -78,7 +78,7 @@
     box-shadow: 10px 5px 5px #8fa4bf;
     }
 
-    @media only screen and (max-width: 500px) {
+    @media only screen and (max-width: 480px) {
     .available-items-card {
         width: 95%;
         margin: 1rem;
