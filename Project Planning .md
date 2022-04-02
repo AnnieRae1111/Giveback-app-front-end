@@ -1,3 +1,6 @@
+Checkout my app here: https://goodkarma-app.herokuapp.com/signin
+
+
 My app is called Good Karma. The app allows you to easily post items you want to give away and find people who actually need them. I personally have been driving around with a bunch of stuff in my car that I need to give away but haven't made it anywhere to drop it off. This app helsp you easily show what you have to give away adn allows other people to claim the item and pick it up. You can have them pick up items from your house or you can leave them in specified areas for other people to pick up. 
 
 Technologies used: HTML, CSS, JavaScript, React, reactStrap, react reveal. 
