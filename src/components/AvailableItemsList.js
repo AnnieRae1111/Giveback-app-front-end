@@ -1,31 +1,24 @@
-    import "../css/AvailableItems.css";
-    import AvailableItemsCard from "./AvailableItemsCard";
-    import { Row } from "reactstrap";
-    import { useState, useEffect } from "react";
+    import '../css/AvailableItems.css';
+    import AvailableItemsCard from './AvailableItemsCard';
+    import { Row } from 'reactstrap';
+    import { useState, useEffect } from 'react';
 
-    const AvailableItemsList = ({deleteItem, items, setItems }) => {
+    const AvailableItemsList = ({ deleteItem, items, setItems }) => {
     console.log(items);
 
     const [itemHistory, setItemHistory] = useState([]);
 
     useEffect(() => {
-        console.log(itemHistory, "item history in useEffect");
+        console.log(itemHistory, 'item history in useEffect');
     }, [itemHistory]);
 
     const claimItem = (id) => {
-        // let itemToClaim = items.filter((claimed)=> claimed._id === itemId)
         let itemToClaim = items.find((eachItem) => eachItem._id === id);
-        console.log(itemToClaim, "item that has been claimed");
-
-        // axios.post()
-        // setClaimed(itemToClaim)
+        console.log(itemToClaim, 'item that has been claimed');
         setItemHistory((itemHistory) => [...itemHistory, itemToClaim]);
-        // console.log(itemHistory, "item History array")
-
         let itemsNotClaimed = items.filter((item) => item._id !== id);
-        console.log(itemsNotClaimed, "items not claimed");
+        console.log(itemsNotClaimed, 'items not claimed');
         setItems(itemsNotClaimed);
-        // console.log(availableItems, "remaining items")
     };
 
     return (

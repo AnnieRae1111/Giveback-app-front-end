@@ -1,8 +1,8 @@
-    import { Form, FormGroup, Label, Input, Button } from "reactstrap";
+    import { Form, FormGroup, Label, Input, Button } from 'reactstrap';
 
-    import "../css/UploadFile.css";
+    import '../css/UploadFile.css';
 
-    import { useEffect, useState } from "react";
+    import { useEffect, useState } from 'react';
 
     const UploadFile = ({ images, setImages }) => {
     const [imageUrls, setImageUrls] = useState([]);

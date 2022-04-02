@@ -1,7 +1,7 @@
-    import { useEffect } from "react";
-    import { useParams, Link } from "react-router-dom";
+    import { useEffect } from 'react';
+    import { useParams, Link } from 'react-router-dom';
 
-    import { Form, FormGroup, Label, Input, Button } from "reactstrap";
+    import { Form, FormGroup, Label, Input, Button } from 'reactstrap';
 
     const EditPost = ({
     items,
@@ -17,8 +17,8 @@
     }) => {
     const { id } = useParams();
     const item = items.find((item) => item._id === id);
-    console.log(item, "this is the item");
-    console.log(items, "all items in edit post");
+    console.log(item, 'this is the item');
+    console.log(items, 'all items in edit post');
 
     useEffect(() => {
         if (item) {

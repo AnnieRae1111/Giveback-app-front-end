@@ -1,6 +1,6 @@
-    import { Form, FormGroup, Label, Input, Button } from "reactstrap";
+    import { Form, FormGroup, Label, Input, Button } from 'reactstrap';
 
-    import "../css/EditPostModal.css";
+    import '../css/EditPostModal.css';
     const EditPostModal = ({
     submitEdits,
     closeModal,

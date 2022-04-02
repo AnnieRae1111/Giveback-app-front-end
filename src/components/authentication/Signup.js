@@ -1,59 +1,45 @@
-    import React, { useRef, useState, useEffect } from "react";
-    import { Link } from "react-router-dom";
+    import React, { useRef, useState, useEffect } from 'react';
+    import { Link } from 'react-router-dom';
     import {
     faCheck,
     faTimes,
     faInfoCircle,
-    } from "@fortawesome/free-solid-svg-icons";
-    import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-    import "./../../css/SignUp.css";
-    import axios from "axios";
+    } from '@fortawesome/free-solid-svg-icons';
+    import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+    import './../../css/SignUp.css';
+    import axios from 'axios';
 
     const USER_REGEX = /^[A-z][A-z0-9-_]{3,23}$/;
-    // must start with lower or upercase, must be followed by 3, 23 characters that can be lower, uppercase , digits
-    //4-24 characters
     const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
-    //requires one lower, one upper, one digit and one special character.
-    //4-24 characters
 
     const SignUp = () => {
     const userRef = useRef();
     const errRef = useRef();
 
-    const [user, setUser] = useState("");
+    const [user, setUser] = useState('');
     const [validName, setValidName] = useState(false);
     const [userFocus, setUserFocus] = useState(false);
 
-    const [pwd, setPwd] = useState("");
+    const [pwd, setPwd] = useState('');
     const [validPwd, setValidPwd] = useState(false);
     const [pwdFocus, setPwdFocus] = useState(false);
 
-    const [matchPwd, setMatchPwd] = useState("");
+    const [matchPwd, setMatchPwd] = useState('');
     const [validMatch, setValidMatch] = useState(false);
     const [matchFocus, setMatchFocus] = useState(false);
 
-    const [errMsg, setErrMsg] = useState("");
+    const [errMsg, setErrMsg] = useState('');
     const [success, setSuccess] = useState(false);
 
     useEffect(() => {
         userRef.current.focus();
     }, []);
-    //setting the focus for when component loads
-    //setting focus on username input
-
-    //useRef, similar to useState but doesn't cause your component to re-update when it changes
-    //useRef persists between renders like useState but doesn't cause commponent to re-update when it changes
-    //useRef very useful in accessing dom elements . similar to document.querySelector .
-
     useEffect(() => {
         const result = USER_REGEX.test(user);
-        //testing username against regex test
         console.log(result);
         console.log(user);
         setValidName(result);
     }, [user]);
-    //validating username
-    //anytime username changes, it checks validation of that field
 
     useEffect(() => {
         const result = PWD_REGEX.test(pwd);
@@ -63,46 +49,29 @@
         const match = pwd === matchPwd;
         setValidMatch(match);
     }, [pwd, matchPwd]);
-    //checking to see if both passwords match when input field is changed
 
     useEffect(() => {
-        setErrMsg("");
+        setErrMsg('');
     }, [user, pwd, matchPwd]);
-    //anytime user tries to input new password or changes an incorrect , this will
-    //reset the error to nothin
-
-    //only one signup button so dont need onclick for that, it automatically creates submit event with the form onSubmit function
-    // https://desolate-reaches-56728.herokuapp.com/api/
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const localUrl = `http://localhost:8000/api/users/signup`;
-        // const signUpUrl ='https://desolate-reaches-56728.herokuapp.com/api/users/signup'
         const signUpUrl =
-        "https://desolate-reaches-56728.herokuapp.com/api/users/signup";
-        //if signup button enabled with hacker
-        // const v1=USER_REGEX.test(user)
-        // const v2=PWD_REGEX.test(pwd)
-        // if(!v1 || !v2){
-        //     setErrMsg("invalid entry")
-        //     return
-        // }
+        'https://desolate-reaches-56728.herokuapp.com/api/users/signup';
         console.log(user, pwd);
-        // setSuccess(true)
         let newUser = {
         email: user,
         password: pwd,
         };
         try {
         const response = await axios.post(signUpUrl, newUser, {
-            headers: { "Content-Type": "application/json" },
+            headers: { 'Content-Type': 'application/json' },
             // withCredentials: true
         });
         console.log(response.data);
         console.log(response.accessToken);
         console.log(response);
         setSuccess(true);
-        //clear input fields
         } catch (error) {
         console.log(error);
         }
@@ -122,7 +91,7 @@
             <section>
             <p
                 ref={errRef}
-                className={errMsg ? "errmsg" : "offscreen"}
+                className={errMsg ? 'errmsg' : 'offscreen'}
                 aria-live="assertive"
             >
                 {errMsg}
@@ -131,12 +100,10 @@
             <form onSubmit={handleSubmit}>
                 <label htmlFor="username">
                 Username:
-                <span className={validName ? "valid" : "hide"}>
-                    {/* hiding the check icon if the username isn't valid */}
+                <span className={validName ? 'valid' : 'hide'}>
                     <FontAwesomeIcon icon={faCheck} />
                 </span>
-                <span className={validName || !user ? "hide" : "invalid"}>
-                    {/* if name is valid or there is no user hide the x otherwise className=invalid */}
+                <span className={validName || !user ? 'hide' : 'invalid'}>
                     <FontAwesomeIcon icon={faTimes} />
                 </span>
                 </label>
@@ -148,7 +115,7 @@
                 onChange={(e) => setUser(e.target.value)}
                 value={user}
                 required
-                aria-invalid={validName ? "false" : "true"}
+                aria-invalid={validName ? 'false' : 'true'}
                 aria-describedby="uidnote"
                 onFocus={() => setUserFocus(true)}
                 onBlur={() => setUserFocus(false)}
@@ -156,7 +123,7 @@
                 <p
                 id="uidnote"
                 className={
-                    userFocus && user && !validName ? "instructions" : "offscreen"
+                    userFocus && user && !validName ? 'instructions' : 'offscreen'
                 }
                 >
                 <FontAwesomeIcon icon={faInfoCircle} />
@@ -169,10 +136,10 @@
 
                 <label htmlFor="password">
                 Password:
-                <span className={validPwd ? "valid" : "hide"}>
+                <span className={validPwd ? 'valid' : 'hide'}>
                     <FontAwesomeIcon icon={faCheck} />
                 </span>
-                <span className={validPwd || !pwd ? "hide" : "invalid"}>
+                <span className={validPwd || !pwd ? 'hide' : 'invalid'}>
                     <FontAwesomeIcon icon={faTimes} />
                 </span>
                 </label>
@@ -187,7 +154,7 @@
                 />
                 <p
                 id="pwdnote"
-                className={pwdFocus && !validPwd ? "instructions" : "offscreen"}
+                className={pwdFocus && !validPwd ? 'instructions' : 'offscreen'}
                 >
                 <FontAwesomeIcon icon={faInfoCircle} />
                 8 to 24 characters. <br />
@@ -198,10 +165,10 @@
 
                 <label htmlFor="confirm_pwd">
                 Confirm Password:
-                <span className={validMatch && matchPwd ? "valid" : "hide"}>
+                <span className={validMatch && matchPwd ? 'valid' : 'hide'}>
                     <FontAwesomeIcon icon={faCheck} />
                 </span>
-                <span className={validMatch || !matchPwd ? "hide" : "invalid"}>
+                <span className={validMatch || !matchPwd ? 'hide' : 'invalid'}>
                     <FontAwesomeIcon icon={faTimes} />
                 </span>
                 </label>
@@ -215,7 +182,7 @@
                 />
                 <p
                 className={
-                    matchFocus && !validMatch ? "instructions" : "offscreen"
+                    matchFocus && !validMatch ? 'instructions' : 'offscreen'
                 }
                 >
                 <FontAwesomeIcon icon={faInfoCircle} />

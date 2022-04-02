@@ -8,12 +8,11 @@
     CardSubtitle,
     CardText,
     Row,
-    } from "reactstrap";
+    } from 'reactstrap';
 
-    import { Link } from "react-router-dom";
+    import { Link } from 'react-router-dom';
 
     const AvailableItemsCard = ({ deleteItem, claimItem, item }) => {
-    
     return (
         <div className="available-items-card-container">
         <Row>
