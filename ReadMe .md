@@ -1,12 +1,13 @@
 Checkout my app here: https://goodkarma-app.herokuapp.com/signin
+(I ended up changing the name from the Giveback app to the GoodKarma app) 
 
-
-My app is called Good Karma. The app allows you to easily post items you want to give away and find people who actually need them. I personally have been driving around with a bunch of stuff in my car that I need to give away but haven't made it anywhere to drop it off. This app helsp you easily show what you have to give away adn allows other people to claim the item and pick it up. You can have them pick up items from your house or you can leave them in specified areas for other people to pick up. 
+My app is called Good Karma. The app allows you to easily post items you want to give away and find people who actually need them. I personally have been driving around with a bunch of stuff in my car that I need to give away but haven't made it anywhere to drop it off. This app helps you easily show what you have to give away and allows other people to claim the item and pick it up. You can have them pick up items from your house or you can leave them in specified areas for other people to pick up. 
 
 Technologies used: HTML, CSS, JavaScript, React, reactStrap, react reveal. 
 
 Stretch goals: 
 -to add a section that connects people with local places in need such as shelters, good will, thrift stores, etc. 
+-to include a feature that allows you to search for items near you only 
 
 ---User Stories---
 •As a user I want to be able to log in to my account 
